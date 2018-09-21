@@ -23,9 +23,15 @@ module.exports = {
         },
 
         test: /\.js$/
-      }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
     ]
   },
+
+  devtool: 'source-map',
 
   entry: {
     editor: './src/client/editor.js',
