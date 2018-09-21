@@ -1,13 +1,17 @@
 import { Vector } from 'p5';
 
 export default class Gate {
-    constructor({pos} = {}) {
+    constructor({pos, state} = {}) {
         this.pos = pos || new Vector(50, 100);
         this.size = new Vector(80, 80);
+        this.state = (typeof state !== 'undefined') ? state : false;
     }
 
     draw(p) {
+        p.push();
+        p.fill(this.state ? 255 : 0);
         p.rect(this.pos.x, this.pos.y, this.size.x, this.size.y);
+        p.pop();
     }
 
     mousePressed(p, {x, y, button}) {
@@ -30,6 +34,6 @@ export default class Gate {
     }
 
     toJSON() {
-        return { pos: this.pos };
+        return { pos: this.pos, state: this.state };
     }
 }

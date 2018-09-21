@@ -1,8 +1,12 @@
 import p5 from 'p5';
-import './css/common.css';
+import io from 'socket.io-client';
 import Gate from './models/gate';
 
+import './css/common.css';
+
 const gates = restore();
+
+const socket = io();
 
 new p5(function (p) {
   p.setup = function () {
@@ -39,3 +43,8 @@ function restore() {
     return Array(10).fill().map(() => new Gate());
   }
 }
+
+socket.on('output', function (data) {
+  gates.forEach((gate) => { gate.state = data.state });
+  save();
+});

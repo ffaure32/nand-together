@@ -6,7 +6,7 @@ A participative circuit simulator.
 
 ```
 $ npm install
-$ npm run dev
+$ npm start
 ```
 
 Then open http://localhost:3000/ or http://localhost:3000/editor.html .

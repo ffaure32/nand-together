@@ -4,11 +4,26 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Editor",
             "url": "http://localhost:3000/editor.html",
+            "webRoot": "${workspaceFolder}/public",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${webRoot}/../*",
+                "webpack:///./*": "${webRoot}/../*",
+                "webpack:///src/*": "${webRoot}/../src/*",
+                "webpack:///./~/*": "${webRoot}/../node_modules/*"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Player",
+            "url": "http://localhost:3000/index.html",
             "webRoot": "${workspaceFolder}/public",
             "sourceMaps": true,
             "sourceMapPathOverrides": {
