@@ -15,6 +15,11 @@ new p5(function (p) {
 
   p.draw = function () {
     p.background(220);
+    p.push();
+    p.fill(0);
+    p.textSize(32);
+    p.text(`Connect to: ${location.origin}`, 5, 35);
+    p.pop();
     gates.forEach((g) => g.draw(p));
   };
 
