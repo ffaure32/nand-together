@@ -1,0 +1,42 @@
+{
+  "name": "nand-together",
+  "version": "1.0.0",
+  "description": "Participative Circuit Simulator",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www",
+    "start:watch": "nodemon -w src/server bin/www",
+    "build": "webpack",
+    "build:watch": "nodemon -w webpack.config.js --exec webpack -- --watch",
+    "dev": "run-p build:watch start:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ut7/nand-together.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ut7/nand-together/issues"
+  },
+  "homepage": "https://github.com/ut7/nand-together#readme",
+  "dependencies": {
+    "express": "~4.16.0",
+    "morgan": "~1.9.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9"
+  },
+  "devDependencies": {
+    "@webpack-cli/init": "^0.1.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.4",
+    "npm-run-all": "^4.1.3",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
