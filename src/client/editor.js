@@ -20,7 +20,7 @@ new p5(function (p) {
 
   ['mousePressed', 'mouseDragged', 'mouseReleased'].forEach((event) => {
     p[event] = function () {
-      if (gates.some((g) => g[event](p, {x: p.mouseX, y: p.mouseY, button: p.mouseButton}))) {
+      if (gates.slice().reverse().some((g) => g[event](p, {x: p.mouseX, y: p.mouseY, button: p.mouseButton}))) {
         save();
       }
     }
