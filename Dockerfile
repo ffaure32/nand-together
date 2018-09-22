@@ -8,6 +8,8 @@ RUN npm ci
 
 COPY webpack.config.js /app/
 COPY src/client /app/src/client
+
+ENV NODE_ENV=production
 RUN npm run build
 
 FROM node:10.11.0-alpine
