@@ -1,6 +1,7 @@
 import p5 from 'p5';
 import io from 'socket.io-client';
-import './css/common.css';
+
+import '../css/common.css';
 
 const state = {
     inputs: [ true, false ],

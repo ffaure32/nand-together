@@ -34,8 +34,8 @@ module.exports = {
   devtool: 'source-map',
 
   entry: {
-    editor: './src/client/editor.js',
-    player: './src/client/player.js'
+    editor: './src/client/editor',
+    player: './src/client/player'
   },
 
   output: {

@@ -2,7 +2,7 @@ import p5 from 'p5';
 import io from 'socket.io-client';
 import Gate from './models/gate';
 
-import './css/common.css';
+import '../css/common.css';
 
 const gates = restore();
 
@@ -45,6 +45,7 @@ function restore() {
     const store = JSON.parse(localStorage.getItem('gates'));
     return store.map((info) => new Gate(info));
   } catch(e) {
+    console.error("Failed to load from localStorage:", e)
     return Array(10).fill().map(() => new Gate());
   }
 }
