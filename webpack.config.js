@@ -50,13 +50,13 @@ module.exports = {
       filename: 'index.html',
       hash: true,
       chunks: ['player'],
-      template: path.resolve(__dirname, 'src/client/player.html')
+      template: path.resolve(__dirname, 'src/client/template.html')
     }),
     new HtmlWebpackPlugin({
       filename: 'editor.html',
       hash: true,
       chunks: ['editor'],
-      template: path.resolve(__dirname, 'src/client/editor.html')
+      template: path.resolve(__dirname, 'src/client/template.html')
     }),
   ],
 };
