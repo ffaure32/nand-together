@@ -1,8 +1,7 @@
 const debug = require("debug")("server");
 
 module.exports = class PlayerHandler {
-  constructor({ socket, playerId, playerEvents }) {
-    this.socket = socket;
+  constructor({ playerId, playerEvents }) {
     this.playerId = playerId;
     this.playerEvents = playerEvents;
   }
