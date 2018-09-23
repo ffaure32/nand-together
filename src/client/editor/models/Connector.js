@@ -62,9 +62,6 @@ export default class Connector {
   }
 
   allowConnection(targetConnector) {
-    return (
-      targetConnector !== this &&
-      !(this.dir === "output" && targetConnector.dir === "output")
-    );
+    return targetConnector !== this && this.dir !== targetConnector.dir;
   }
 }
