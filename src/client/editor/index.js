@@ -65,29 +65,29 @@ function restore() {
 }
 
 socket.on("player", function(data) {
-  const { playerId, present } = data;
-  const controlledGate = gates.find(gate => gate.playerId === data.playerId);
-  if (data.present) {
-    if (!controlledGate) {
-      const availableGate = gates.find(gate => !gate.playerId);
-      if (availableGate) {
-        debug(`player ${playerId} taking control of gate ${availableGate.id}`);
-        availableGate.playerId = playerId;
+  const { playerId } = data;
+  const controlledGate = gates.find(gate => gate.playerId === playerId);
+  if ("output" in data) {
+    gates.filter(gate => gate.playerId === playerId).forEach(gate => {
+      gate.state = data.output.state;
+    });
+  } else if ("present" in data) {
+    if (data.present) {
+      if (!controlledGate) {
+        const availableGate = gates.find(gate => !gate.playerId);
+        if (availableGate) {
+          debug(
+            `player ${playerId} taking control of gate ${availableGate.id}`
+          );
+          availableGate.playerId = playerId;
+        }
+      }
+    } else {
+      if (controlledGate) {
+        debug(`player ${playerId} releasing gate ${controlledGate.id}`);
+        controlledGate.playerId = null;
       }
     }
-  } else {
-    if (controlledGate) {
-      debug(`player ${playerId} releasing gate ${controlledGate.id}`);
-      controlledGate.playerId = null;
-    }
   }
-  save();
-});
-
-socket.on("output", function(data) {
-  const { playerId, output } = data;
-  gates.filter(gate => gate.playerId === playerId).forEach(gate => {
-    gate.state = output.state;
-  });
   save();
 });

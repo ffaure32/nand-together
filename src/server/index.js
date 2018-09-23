@@ -5,6 +5,10 @@ const logger = require("morgan");
 const http = require("http");
 const debug = require("debug")("server");
 const expressStaticGzip = require("express-static-gzip");
+const EventEmitter = require("events");
+const EditorHandler = require("./handlers/EditorHandler");
+const PlayerHandler = require("./handlers/PlayerHandler");
+const _ = require("lodash");
 
 module.exports = function() {
   const app = express();
@@ -19,34 +23,40 @@ module.exports = function() {
 
   app.use(expressStaticGzip(path.join(__dirname, "../../public")));
 
-  let editors = [];
+  let editors = [],
+    players = [];
+
+  const playerEvents = new EventEmitter();
 
   io.on("connection", function(socket) {
     const { isEditor, playerId } = socket.handshake.query;
 
     if (isEditor) {
       debug(`an editor connected`);
-      editors.push(socket);
+      const handler = new EditorHandler({ players, playerEvents });
+      editors.push(handler);
+
+      handler.on("player", data => socket.emit("player", data));
+
+      handler.connect();
 
       socket.on("disconnect", function() {
         debug(`an editor disconnected`);
-        editors = editors.filter(e => e !== socket);
+        _.pull(editors, handler);
+        handler.disconnect();
       });
     } else {
       debug(`player '${playerId}' connected`);
+      const handler = new PlayerHandler({ playerId, playerEvents });
+      players.push(handler);
+      handler.connect();
 
-      editors.forEach(e => e.emit("player", { playerId, present: true }));
+      socket.on("output", data => handler.onOutput(data));
 
       socket.on("disconnect", function() {
         debug(`player '${playerId}' disconnected`);
-        editors.forEach(e => e.emit("player", { playerId, present: false }));
-      });
-
-      socket.on("output", function(output) {
-        debug(
-          `player '${playerId}' set their state to ${JSON.stringify(output)}`
-        );
-        editors.forEach(e => e.emit("output", { playerId, output }));
+        _.pull(players, handler);
+        handler.disconnect();
       });
     }
   });
