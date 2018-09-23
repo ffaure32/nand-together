@@ -16,13 +16,13 @@ export default class Player {
     p.textSize(24);
     p.text(this.id, 0.5 * p.width, p.height - 2);
 
-    p.fill(this.state.inputs[0] ? 255 : 0);
+    p.fill(this.state.inputs[0] ? p.color(0, 255, 0) : p.color(255, 0, 0));
     p.rect(0 * p.width, 0.1 * p.height, 0.25 * p.width, 0.3 * p.height);
 
-    p.fill(this.state.inputs[1] ? 255 : 0);
+    p.fill(this.state.inputs[1] ? p.color(0, 255, 0) : p.color(255, 0, 0));
     p.rect(0 * p.width, 0.6 * p.height, 0.25 * p.width, 0.3 * p.height);
 
-    p.fill(this.state.output ? 255 : 0);
+    p.fill(this.state.output ? p.color(0, 255, 0) : p.color(255, 0, 0));
     p.rect(0.75 * p.width, 0.25 * p.height, 0.25 * p.width, 0.5 * p.height);
 
     p.pop();

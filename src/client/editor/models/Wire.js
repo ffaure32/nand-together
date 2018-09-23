@@ -40,4 +40,12 @@ export default class Wire {
         srcConnector === this.outputConnector)
     );
   }
+
+  simulate() {
+    if (this.inputConnector.dir === "output") {
+      this.outputConnector.state = this.inputConnector.state;
+    } else {
+      this.inputConnector.state = this.outputConnector.state;
+    }
+  }
 }

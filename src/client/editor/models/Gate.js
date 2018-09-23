@@ -122,4 +122,10 @@ export default class Gate {
       localY = y - this.pos.y;
     return this.connectors.find(c => containsPoint(c, localX, localY));
   }
+
+  simulate() {
+    if (!this.playerId) {
+      this.output.state = !(this.inputs[0].state && this.inputs[1].state);
+    }
+  }
 }

@@ -15,7 +15,7 @@ export default class Connector {
   draw(p) {
     p.push();
     p.translate(this.pos.x, this.pos.y);
-    p.fill(this.state ? 255 : 0);
+    p.fill(this.state ? p.color(0, 255, 0) : p.color(255, 0, 0));
     p.rectMode(p.CORNER);
     p.rect(0, 0, this.size.x, this.size.y);
     p.pop();

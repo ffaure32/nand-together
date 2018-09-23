@@ -126,6 +126,11 @@ export default class Schema {
       connectorRef.index
     ];
   }
+
+  simulate() {
+    this.gates.forEach(g => g.simulate());
+    this.wires.forEach(w => w.simulate());
+  }
 }
 
 ["mousePressed", "mouseDragged", "mouseReleased"].forEach(event => {
