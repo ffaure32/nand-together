@@ -8,7 +8,7 @@
     "build:watch": "nodemon -w webpack.config.js --exec webpack -- --watch",
     "format": "prettier --write '**/*.js' '!public/**'",
     "server:watch": "nodemon -w src/server bin/www",
-    "start": "run-p build:watch server:watch",
+    "start": "DEBUG=server run-p build:watch server:watch",
     "test": "mocha --recursive"
   },
   "repository": {

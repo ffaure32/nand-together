@@ -16,7 +16,7 @@ module.exports = function() {
 
   const io = require("socket.io")(server);
 
-  app.use(logger("dev"));
+  app.use(logger("short"));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
@@ -29,10 +29,13 @@ module.exports = function() {
   const playerEvents = new EventEmitter();
 
   io.on("connection", function(socket) {
-    const { isEditor, playerId } = socket.handshake.query;
+    const {
+      address,
+      query: { isEditor, playerId }
+    } = socket.handshake;
 
     if (isEditor) {
-      debug(`an editor connected`);
+      debug(`an editor connected from ${address}`);
       const handler = new EditorHandler({ players, playerEvents });
       editors.push(handler);
 
@@ -41,12 +44,12 @@ module.exports = function() {
       handler.connect();
 
       socket.on("disconnect", function() {
-        debug(`an editor disconnected`);
+        debug(`an editor disconnected from ${address}`);
         _.pull(editors, handler);
         handler.disconnect();
       });
     } else {
-      debug(`player '${playerId}' connected`);
+      debug(`player '${playerId}' connected from ${address}`);
       const handler = new PlayerHandler({ playerId, playerEvents });
       players.push(handler);
       handler.connect();
@@ -54,7 +57,7 @@ module.exports = function() {
       socket.on("output", data => handler.onOutput(data));
 
       socket.on("disconnect", function() {
-        debug(`player '${playerId}' disconnected`);
+        debug(`player '${playerId}' disconnected from ${address}`);
         _.pull(players, handler);
         handler.disconnect();
       });
