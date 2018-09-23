@@ -39,5 +39,6 @@ new p5(function(p) {
 
   p.mousePressed = function() {
     player.mousePressed(p, { x: p.mouseX, y: p.mouseY, button: p.mouseButton });
+    return false;
   };
 });
