@@ -2,9 +2,9 @@ import { Vector } from "p5";
 import chance from "../../common/chance";
 
 export default class Gate {
-  constructor({ pos, state } = {}) {
-    this.id = chance.word({ length: 8 });
-    this.playerId = null;
+  constructor({ id, pos, state, playerId } = {}) {
+    this.id = id || chance.word({ length: 8 });
+    this.playerId = playerId;
     this.pos = pos || new Vector(50, 100);
     this.size = new Vector(80, 80);
     this.state = typeof state !== "undefined" ? state : false;
@@ -49,6 +49,11 @@ export default class Gate {
   }
 
   toJSON() {
-    return { pos: this.pos, state: this.state };
+    return {
+      id: this.id,
+      pos: this.pos,
+      state: this.state,
+      playerId: this.playerId
+    };
   }
 }
