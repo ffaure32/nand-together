@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "html.format.endWithNewline": true
+    "html.format.endWithNewline": true,
+    "editor.tabSize": 2
 }
