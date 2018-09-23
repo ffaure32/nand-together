@@ -6,7 +6,11 @@ import "../css/common.css";
 
 const gates = restore();
 
-const socket = io();
+const socket = io({ query: { isEditor: true } });
+
+function debug(...args) {
+  console.log(...args);
+}
 
 new p5(function(p) {
   p.setup = function() {
@@ -59,9 +63,30 @@ function restore() {
   }
 }
 
+socket.on("player", function(data) {
+  const { playerId, present } = data;
+  const controlledGate = gates.find(gate => gate.playerId === data.playerId);
+  if (data.present) {
+    if (!controlledGate) {
+      const availableGate = gates.find(gate => !gate.playerId);
+      if (availableGate) {
+        debug(`player ${playerId} taking control of gate ${availableGate.id}`);
+        availableGate.playerId = playerId;
+      }
+    }
+  } else {
+    if (controlledGate) {
+      debug(`player ${playerId} releasing gate ${controlledGate.id}`);
+      controlledGate.playerId = null;
+    }
+  }
+  save();
+});
+
 socket.on("output", function(data) {
-  gates.forEach(gate => {
-    gate.state = data.state;
+  const { playerId, output } = data;
+  gates.filter(gate => gate.playerId === playerId).forEach(gate => {
+    gate.state = output.state;
   });
   save();
 });

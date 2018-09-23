@@ -19,19 +19,36 @@ module.exports = function() {
 
   app.use(expressStaticGzip(path.join(__dirname, "../../public")));
 
+  let editors = [];
+
   io.on("connection", function(socket) {
-    const playerId = socket.handshake.query.playerId;
+    const { isEditor, playerId } = socket.handshake.query;
 
-    debug(`player '${playerId}' connected`);
+    if (isEditor) {
+      debug(`an editor connected`);
+      editors.push(socket);
 
-    socket.on("disconnect", function() {
-      debug(`player '${playerId}' disconnected`);
-    });
+      socket.on("disconnect", function() {
+        debug(`an editor disconnected`);
+        editors = editors.filter(e => e !== socket);
+      });
+    } else {
+      debug(`player '${playerId}' connected`);
 
-    socket.on("output", function(data) {
-      debug(`player '${playerId}' set their state to ${JSON.stringify(data)}`);
-      socket.broadcast.emit("output", data);
-    });
+      editors.forEach(e => e.emit("player", { playerId, present: true }));
+
+      socket.on("disconnect", function() {
+        debug(`player '${playerId}' disconnected`);
+        editors.forEach(e => e.emit("player", { playerId, present: false }));
+      });
+
+      socket.on("output", function(output) {
+        debug(
+          `player '${playerId}' set their state to ${JSON.stringify(output)}`
+        );
+        editors.forEach(e => e.emit("output", { playerId, output }));
+      });
+    }
   });
 
   return server;

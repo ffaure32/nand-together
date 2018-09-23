@@ -1,7 +1,10 @@
 import { Vector } from "p5";
+import chance from "../../common/chance";
 
 export default class Gate {
   constructor({ pos, state } = {}) {
+    this.id = chance.word({ length: 8 });
+    this.playerId = null;
     this.pos = pos || new Vector(50, 100);
     this.size = new Vector(80, 80);
     this.state = typeof state !== "undefined" ? state : false;
@@ -9,8 +12,16 @@ export default class Gate {
 
   draw(p) {
     p.push();
+    p.translate(this.pos.x, this.pos.y);
     p.fill(this.state ? 255 : 0);
-    p.rect(this.pos.x, this.pos.y, this.size.x, this.size.y);
+    p.rect(0, 0, this.size.x, this.size.y);
+
+    p.textAlign(p.CENTER, p.TOP);
+    p.textSize(10);
+    p.fill(0);
+    p.text(this.id, 0.5 * this.size.x, 2);
+    p.textAlign(p.CENTER, p.BOTTOM);
+    p.text(this.playerId || "", 0.5 * this.size.x, this.size.y - 2);
     p.pop();
   }
 

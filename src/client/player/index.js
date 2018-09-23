@@ -1,9 +1,7 @@
 import p5 from "p5";
 import io from "socket.io-client";
 import Player from "./models/Player";
-import Chance from "chance";
-
-const chance = new Chance();
+import chance from "../common/chance";
 
 import "../css/common.css";
 
