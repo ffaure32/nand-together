@@ -22,7 +22,8 @@ new p5(function(p) {
     p.push();
     p.fill(0);
     p.textSize(32);
-    p.text(`Connect to: ${location.origin}`, 5, 35);
+    p.textAlign(p.LEFT, p.TOP);
+    p.text(`Connect to: ${location.origin}`, 5, 5);
     p.pop();
     gates.forEach(g => g.draw(p));
   };
@@ -69,7 +70,7 @@ socket.on("player", function(data) {
   const controlledGate = gates.find(gate => gate.playerId === playerId);
   if ("output" in data) {
     gates.filter(gate => gate.playerId === playerId).forEach(gate => {
-      gate.state = data.output.state;
+      gate.update(data);
     });
   } else if ("present" in data) {
     if (data.present) {
