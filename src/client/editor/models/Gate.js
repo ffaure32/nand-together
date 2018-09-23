@@ -1,17 +1,19 @@
 import { Vector } from "p5";
 import chance from "../../common/chance";
-import Connector from "./connector";
+import Connector from "./Connector";
 import { containsPoint } from "../../common/utils";
 
 export default class Gate {
-  constructor({ id, pos, state, playerId } = {}) {
+  constructor({ id, pos, state, playerId, schema } = {}) {
     this.id = id || chance.word({ length: 8 });
     this.playerId = playerId;
-    this.pos = pos || new Vector(50, 100);
+    this.pos = pos ? new Vector(pos.x, pos.y) : new Vector(50, 100);
     this.size = new Vector(80, 80);
+    this.schema = schema;
 
     this.output = new Connector({
       gate: this,
+      index: 0,
       dir: "output",
       center: new Vector(1 * this.size.x, 0.5 * this.size.y),
       state: state && state.output
@@ -20,12 +22,14 @@ export default class Gate {
     this.inputs = [
       new Connector({
         gate: this,
+        index: 1,
         dir: "input",
         center: new Vector(0 * this.size.x, 0.2 * this.size.y),
         state: state && state.inputs && state.inputs[0]
       }),
       new Connector({
         gate: this,
+        index: 2,
         dir: "input",
         center: new Vector(0 * this.size.x, 0.8 * this.size.y),
         state: state && state.inputs && state.inputs[1]
@@ -54,11 +58,7 @@ export default class Gate {
   }
 
   mousePressed(p, { x, y, button }) {
-    if (
-      this.connectors.some(c =>
-        c.mousePressed(p, { x: x - this.pos.x, y: y - this.pos.y, button })
-      )
-    ) {
+    if (this.dispatchToConnectors("mousePressed", p, { x, y, button })) {
       return true;
     }
 
@@ -75,7 +75,7 @@ export default class Gate {
       this.pos = Vector.sub(new Vector(x, y), this.handlePos);
       return true;
     }
-    return false;
+    return this.dispatchToConnectors("mouseDragged", p, { x, y, button });
   }
 
   mouseReleased(p, { x, y, button }) {
@@ -84,8 +84,12 @@ export default class Gate {
       return true;
     }
 
+    return this.dispatchToConnectors("mouseReleased", p, { x, y, button });
+  }
+
+  dispatchToConnectors(event, p, { x, y, button }) {
     return this.connectors.some(c =>
-      c.mouseReleased(p, { x: x - this.pos.x, y: y - this.pos.y, button })
+      c[event](p, { x: x - this.pos.x, y: y - this.pos.y, button })
     );
   }
 
@@ -103,5 +107,19 @@ export default class Gate {
 
   update({ output: { state } }) {
     this.output.state = state;
+  }
+
+  dragWire(connector, { x, y, dragging }) {
+    return this.schema.dragWire(connector, {
+      x: this.pos.x + x,
+      y: this.pos.y + y,
+      dragging
+    });
+  }
+
+  hitConnector({ x, y }) {
+    const localX = x - this.pos.x,
+      localY = y - this.pos.y;
+    return this.connectors.find(c => containsPoint(c, localX, localY));
   }
 }
