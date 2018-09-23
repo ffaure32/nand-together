@@ -1,35 +1,34 @@
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const http = require('http');
-const debug = require('debug')('server');
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const http = require("http");
+const debug = require("debug")("server");
 
-module.exports = function () {
+module.exports = function() {
   const app = express();
   const server = http.createServer(app);
 
-  const io = require('socket.io')(server);
+  const io = require("socket.io")(server);
 
-  app.use(logger('dev'));
+  app.use(logger("dev"));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
-  app.use(express.static(path.join(__dirname, '../../public')));
+  app.use(express.static(path.join(__dirname, "../../public")));
 
-  io.on('connection', function (socket) {
-    debug('a user connected');
+  io.on("connection", function(socket) {
+    debug("a user connected");
 
-    socket.on('disconnect', function () {
-      debug('user disconnected');
+    socket.on("disconnect", function() {
+      debug("user disconnected");
     });
 
-    socket.on('output', function (data) {
-      debug('bouncing output:', data);
-      socket.broadcast.emit('output', data);
+    socket.on("output", function(data) {
+      debug("bouncing output:", data);
+      socket.broadcast.emit("output", data);
     });
-
   });
 
   return server;
-}
+};
