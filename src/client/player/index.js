@@ -1,14 +1,28 @@
 import p5 from "p5";
 import io from "socket.io-client";
+import Player from "./models/Player";
+import Chance from "chance";
+
+const chance = new Chance();
 
 import "../css/common.css";
 
-const state = {
-  inputs: [true, false],
-  output: false
-};
+function getPlayerId() {
+  const storedId = localStorage.getItem("playerId");
+  if (typeof storedId === "string" && storedId.length > 4) {
+    return storedId;
+  } else {
+    const newId = chance.word({ length: 16 });
+    localStorage.setItem("playerId", newId);
+    return newId;
+  }
+}
 
-const socket = io();
+const playerId = getPlayerId();
+
+const socket = io({ query: { playerId } });
+
+const player = new Player({ socket, id: playerId });
 
 new p5(function(p) {
   p.setup = function() {
@@ -22,18 +36,10 @@ new p5(function(p) {
   p.draw = function() {
     p.background(130, 130, 240);
 
-    p.fill(state.inputs[0] ? 255 : 0);
-    p.rect(0 * p.width, 0.1 * p.height, 0.25 * p.width, 0.3 * p.height);
-
-    p.fill(state.inputs[1] ? 255 : 0);
-    p.rect(0 * p.width, 0.6 * p.height, 0.25 * p.width, 0.3 * p.height);
-
-    p.fill(state.output ? 255 : 0);
-    p.rect(0.75 * p.width, 0.25 * p.height, 0.25 * p.width, 0.5 * p.height);
+    player.draw(p);
   };
 
   p.mousePressed = function() {
-    state.output = !state.output;
-    socket.emit("output", { state: state.output });
+    player.mousePressed(p, { x: p.mouseX, y: p.mouseY, button: p.mouseButton });
   };
 });

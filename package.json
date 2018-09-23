@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/ut7/nand-together#readme",
   "dependencies": {
+    "chance": "^1.0.16",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",

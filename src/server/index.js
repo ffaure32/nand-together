@@ -20,14 +20,16 @@ module.exports = function() {
   app.use(expressStaticGzip(path.join(__dirname, "../../public")));
 
   io.on("connection", function(socket) {
-    debug("a user connected");
+    const playerId = socket.handshake.query.playerId;
+
+    debug(`player '${playerId}' connected`);
 
     socket.on("disconnect", function() {
-      debug("user disconnected");
+      debug(`player '${playerId}' disconnected`);
     });
 
     socket.on("output", function(data) {
-      debug("bouncing output:", data);
+      debug(`player '${playerId}' set their state to ${JSON.stringify(data)}`);
       socket.broadcast.emit("output", data);
     });
   });
