@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   module: {
@@ -57,6 +58,7 @@ module.exports = {
       hash: true,
       chunks: ["editor"],
       template: path.resolve(__dirname, "src/client/template.html")
-    })
+    }),
+    new CompressionPlugin(),
   ]
 };

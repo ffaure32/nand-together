@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const http = require("http");
 const debug = require("debug")("server");
+const expressStaticGzip = require("express-static-gzip");
 
 module.exports = function() {
   const app = express();
@@ -15,7 +16,8 @@ module.exports = function() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
-  app.use(express.static(path.join(__dirname, "../../public")));
+
+  app.use(expressStaticGzip(path.join(__dirname, "../../public")));
 
   io.on("connection", function(socket) {
     debug("a user connected");
