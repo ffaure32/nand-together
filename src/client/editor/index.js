@@ -24,8 +24,13 @@ socket.on("player", function(data) {
 });
 
 new p5(function(p) {
+  p.preload = function() {
+    p.gateImage = p.loadImage(require("url-loader!../images/NAND.png"));
+  };
+
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
+    p.frameRate(20);
   };
 
   p.draw = function() {

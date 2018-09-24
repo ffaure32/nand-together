@@ -13,11 +13,19 @@ export default class Schema {
     this.storage = storage;
     this.gates = [];
     this.wires = [];
+    this.gridSize = 10;
   }
 
   draw(p) {
-    p.background(220);
+    p.background(255);
     p.push();
+
+    for (let x = 0; x < p.width; x += this.gridSize) {
+      for (let y = 0; y < p.height; y += this.gridSize) {
+        p.point(x, y);
+      }
+    }
+
     p.fill(0);
     p.textSize(32);
     p.textAlign(p.LEFT, p.TOP);
@@ -111,6 +119,9 @@ export default class Schema {
       pull(this.wires, existingWire);
     } else {
       if (srcConnector.allowConnection(targetConnector)) {
+        if (srcConnector.dir === "input") {
+          [srcConnector, targetConnector] = [targetConnector, srcConnector];
+        }
         this.wires.push(
           new Wire({
             schema: this,
@@ -135,6 +146,13 @@ export default class Schema {
 
   neededPlayerUpdates() {
     return compact(this.gates.map(g => g.neededPlayerUpdate()));
+  }
+
+  snapToGrid({ x, y }) {
+    return new Vector(
+      this.gridSize * Math.round(x / this.gridSize),
+      this.gridSize * Math.round(y / this.gridSize)
+    );
   }
 }
 

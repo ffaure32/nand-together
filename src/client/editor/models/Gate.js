@@ -44,7 +44,19 @@ export default class Gate {
     p.translate(this.pos.x, this.pos.y);
 
     p.fill(255);
-    p.rect(0, 0, this.size.x, this.size.y);
+    p.rect(0, 0, this.size.x, this.size.y, 10);
+
+    p.imageMode(p.CENTER);
+    p.push();
+    p.noSmooth();
+    p.image(
+      p.gateImage,
+      0.5 * this.size.x,
+      0.5 * this.size.y,
+      0.8 * this.size.x,
+      0.8 * this.size.y
+    );
+    p.pop();
 
     this.connectors.forEach(c => c.draw(p));
 
@@ -72,7 +84,9 @@ export default class Gate {
 
   mouseDragged(p, { x, y, button }) {
     if (this.handlePos) {
-      this.pos = Vector.sub(new Vector(x, y), this.handlePos);
+      this.pos = this.schema.snapToGrid(
+        Vector.sub(new Vector(x, y), this.handlePos)
+      );
       return true;
     }
     return this.dispatchToConnectors("mouseDragged", p, { x, y, button });

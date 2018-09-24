@@ -21,7 +21,21 @@ export default class Wire {
       outputPos = this.outputConnector.getSchemaPos();
     p.push();
     p.strokeWeight(2);
-    p.line(inputPos.x, inputPos.y, outputPos.x, outputPos.y);
+    p.noFill();
+    if (false) {
+      p.bezier(
+        inputPos.x,
+        inputPos.y,
+        inputPos.x + 50,
+        inputPos.y,
+        outputPos.x - 50,
+        outputPos.y,
+        outputPos.x,
+        outputPos.y
+      );
+    } else {
+      p.line(inputPos.x, inputPos.y, outputPos.x, outputPos.y);
+    }
     p.pop();
   }
 
