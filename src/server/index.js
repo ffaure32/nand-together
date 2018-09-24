@@ -16,6 +16,7 @@ module.exports = function() {
 
   const io = require("socket.io")(server);
 
+  app.set("trust proxy", ["loopback", "linklocal", "uniquelocal"]);
   app.use(logger("short"));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
@@ -29,10 +30,13 @@ module.exports = function() {
   const playerEvents = new EventEmitter();
 
   io.on("connection", function(socket) {
-    const {
+    let {
       address,
+      headers,
       query: { isEditor, playerId }
     } = socket.handshake;
+
+    address = headers["x-real-ip"] || address;
 
     if (isEditor) {
       debug(`an editor connected from ${address}`);
