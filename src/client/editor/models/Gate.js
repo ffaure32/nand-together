@@ -100,8 +100,8 @@ export default class Gate {
       state: {
         inputs: this.inputs.map(c => c.state),
         output: this.output.state
-      },
-      playerId: this.playerId
+      }
+      //playerId: this.playerId
     };
   }
 
