@@ -43,6 +43,8 @@ module.exports = function() {
 
       handler.connect();
 
+      socket.on("update", data => handler.onUpdate(data));
+
       socket.on("disconnect", function() {
         debug(`an editor disconnected from ${address}`);
         _.pull(editors, handler);
@@ -52,6 +54,9 @@ module.exports = function() {
       debug(`player '${playerId}' connected from ${address}`);
       const handler = new PlayerHandler({ playerId, playerEvents });
       players.push(handler);
+
+      handler.on("update", data => socket.emit("update", data));
+
       handler.connect();
 
       socket.on("output", data => handler.onOutput(data));

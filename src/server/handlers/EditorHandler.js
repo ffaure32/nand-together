@@ -24,4 +24,12 @@ module.exports = class EditorHandler extends EventEmitter {
   onPlayer(data) {
     this.emit("player", data);
   }
+
+  onUpdate(data) {
+    const { playerId, ...update } = data;
+    const player = this.players.find(p => p.playerId === playerId);
+    if (player) {
+      player.update(update);
+    }
+  }
 };

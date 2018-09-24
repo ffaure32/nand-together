@@ -2,6 +2,7 @@ import Gate from "./Gate";
 import Wire from "./Wire";
 import { Vector } from "p5";
 import pull from "lodash/pull";
+import compact from "lodash/compact";
 
 function debug(...args) {
   console.log(...args);
@@ -89,13 +90,13 @@ export default class Schema {
             debug(
               `player ${playerId} taking control of gate ${availableGate.id}`
             );
-            availableGate.playerId = playerId;
+            availableGate.attachPlayer(playerId);
           }
         }
       } else {
         if (controlledGate) {
           debug(`player ${playerId} releasing gate ${controlledGate.id}`);
-          controlledGate.playerId = null;
+          controlledGate.attachPlayer(null);
         }
       }
     }
@@ -130,6 +131,10 @@ export default class Schema {
   simulate() {
     this.gates.forEach(g => g.simulate());
     this.wires.forEach(w => w.simulate());
+  }
+
+  neededPlayerUpdates() {
+    return compact(this.gates.map(g => g.neededPlayerUpdate()));
   }
 }
 

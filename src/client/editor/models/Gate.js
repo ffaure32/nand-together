@@ -109,6 +109,23 @@ export default class Gate {
     this.output.state = state;
   }
 
+  attachPlayer(playerId) {
+    this.lastSentPlayerInputs = null;
+    this.playerId = playerId;
+  }
+
+  neededPlayerUpdate() {
+    if (!this.playerId) {
+      return null;
+    }
+    const playerInputs = this.inputs.map(c => c.state);
+
+    if (JSON.stringify(playerInputs) !== this.lastSentPlayerInputs) {
+      this.lastSentPlayerInputs = JSON.stringify(playerInputs);
+      return { playerId: this.playerId, inputs: playerInputs };
+    }
+  }
+
   dragWire(connector, { x, y, dragging }) {
     return this.schema.dragWire(connector, {
       x: this.pos.x + x,

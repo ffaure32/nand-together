@@ -88,6 +88,16 @@ describe("The server", function() {
         player.disconnect();
         player = null;
       });
+
+      it("relays update messages from editor to players", function(done) {
+        player.once("update", function(data) {
+          expect(data).to.deep.equal({
+            inputs: [true, false]
+          });
+          done();
+        });
+        editor.emit("update", { playerId: "aPlayer", inputs: [true, false] });
+      });
     });
   });
 

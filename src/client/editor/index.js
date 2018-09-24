@@ -31,6 +31,7 @@ new p5(function(p) {
   p.draw = function() {
     schema.simulate();
     schema.draw(p);
+    schema.neededPlayerUpdates().forEach(data => socket.emit("update", data));
   };
 
   p.windowResized = function() {

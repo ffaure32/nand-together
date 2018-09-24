@@ -6,6 +6,12 @@ export default class Player {
       inputs: [true, false],
       output: false
     };
+
+    socket.on("update", ({ inputs }) => {
+      this.state.inputs.forEach((v, i) => {
+        this.state.inputs[i] = inputs[i];
+      });
+    });
   }
 
   draw(p) {
