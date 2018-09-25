@@ -18,22 +18,18 @@ export default class Schema {
   }
 
   draw(p) {
-    p.background(255);
+    p.clear();
+
     p.push();
-
-    for (let x = 0; x < p.width; x += this.gridSize) {
-      for (let y = 0; y < p.height; y += this.gridSize) {
-        p.point(x, y);
-      }
-    }
-
     p.fill(0);
     p.textSize(32);
     p.textAlign(p.LEFT, p.TOP);
     p.text(`Connect to: ${location.origin}`, 5, 5);
     p.pop();
+
     this.gates.forEach(g => g.draw(p));
     this.wires.forEach(w => w.draw(p));
+
     if (this.newWire) {
       const { connector, x, y } = this.newWire;
       const connectorPos = Vector.add(connector.center, connector.gate.pos);
