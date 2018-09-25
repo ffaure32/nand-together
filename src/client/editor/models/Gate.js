@@ -159,4 +159,14 @@ export default class Gate {
       this.output.state = !(this.inputs[0].state && this.inputs[1].state);
     }
   }
+
+  keyTyped(p, { x, y, key }) {
+    if (containsPoint(this, x, y)) {
+      if (key === "x") {
+        this.schema.deleteGate(this);
+      }
+      return true;
+    }
+    return false;
+  }
 }

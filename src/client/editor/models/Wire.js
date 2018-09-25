@@ -55,6 +55,12 @@ export default class Wire {
     );
   }
 
+  isConnectedTo(gate) {
+    return (
+      this.inputConnector.gate === gate || this.outputConnector.gate === gate
+    );
+  }
+
   simulate() {
     if (this.inputConnector.dir === "output") {
       this.outputConnector.state = this.inputConnector.state;

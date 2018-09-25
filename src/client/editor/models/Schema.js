@@ -2,6 +2,7 @@ import Gate from "./Gate";
 import Wire from "./Wire";
 import { Vector } from "p5";
 import pull from "lodash/pull";
+import pullAll from "lodash/pullAll";
 import compact from "lodash/compact";
 
 function debug(...args) {
@@ -154,18 +155,42 @@ export default class Schema {
       this.gridSize * Math.round(y / this.gridSize)
     );
   }
-}
 
-["mousePressed", "mouseDragged", "mouseReleased"].forEach(event => {
-  Schema.prototype[event] = function(p, mouse) {
+  dispatchToGates(p, event, eventData) {
     if (
       this.gates
         .slice()
         .reverse()
-        .some(g => g[event](p, mouse))
+        .some(g => g[event](p, eventData))
     ) {
       this.save();
     }
     return false;
+  }
+
+  keyTyped(p, eventData) {
+    if (this.dispatchToGates(p, "keyTyped", eventData)) {
+      return true;
+    }
+    const { x, y, key } = eventData;
+    if (key === "c") {
+      this.gates.push(
+        new Gate({ schema: this, pos: this.snapToGrid({ x, y }) })
+      );
+    }
+    return false;
+  }
+
+  deleteGate(gate) {
+    const deadWires = this.wires.filter(w => w.isConnectedTo(gate));
+    pullAll(this.wires, deadWires);
+    pull(this.gates, gate);
+    this.save();
+  }
+}
+
+["mousePressed", "mouseDragged", "mouseReleased"].forEach(event => {
+  Schema.prototype[event] = function(p, eventData) {
+    return this.dispatchToGates(p, event, eventData);
   };
 });

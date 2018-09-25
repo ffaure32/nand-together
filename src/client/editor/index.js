@@ -49,4 +49,9 @@ new p5(function(p) {
       return false;
     };
   });
+
+  p.keyTyped = function() {
+    schema.keyTyped(p, { key: p.key, x: p.mouseX, y: p.mouseY });
+    return false;
+  };
 });
