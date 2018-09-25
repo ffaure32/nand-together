@@ -15,7 +15,7 @@ export default class Gate {
       gate: this,
       index: 0,
       dir: "output",
-      center: new Vector(1 * this.size.x, 0.5 * this.size.y),
+      center: new Vector(this.size.x, 0.5 * this.size.y),
       state: state && state.output
     });
 
@@ -24,14 +24,14 @@ export default class Gate {
         gate: this,
         index: 1,
         dir: "input",
-        center: new Vector(0 * this.size.x, 0.2 * this.size.y),
+        center: new Vector(0, 20),
         state: state && state.inputs && state.inputs[0]
       }),
       new Connector({
         gate: this,
         index: 2,
         dir: "input",
-        center: new Vector(0 * this.size.x, 0.8 * this.size.y),
+        center: new Vector(0, this.size.y - 20),
         state: state && state.inputs && state.inputs[1]
       })
     ];
