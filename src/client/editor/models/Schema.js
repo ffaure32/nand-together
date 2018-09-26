@@ -24,11 +24,12 @@ export default class Schema {
     p.fill(0);
     p.textSize(32);
     p.textAlign(p.LEFT, p.TOP);
-    p.text(`Connect to: ${location.origin}`, 5, 5);
+    p.text(`Connect to: ${location.protocol}//${location.host}`, 5, 5);
     p.pop();
 
     this.gates.forEach(g => g.draw(p));
     this.wires.forEach(w => w.draw(p));
+    this.gates.forEach(g => g.drawLabel(p));
 
     if (this.newWire) {
       const { connector, x, y } = this.newWire;

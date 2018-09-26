@@ -20,9 +20,10 @@ export default class Wire {
     const inputPos = this.inputConnector.getSchemaPos(),
       outputPos = this.outputConnector.getSchemaPos();
     p.push();
-    p.strokeWeight(2);
+    p.strokeWeight(3);
+    p.stroke(0, 150);
     p.noFill();
-    if (false) {
+    if (true) {
       p.bezier(
         inputPos.x,
         inputPos.y,

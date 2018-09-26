@@ -44,6 +44,7 @@ export default class Gate {
     p.translate(this.pos.x, this.pos.y);
 
     p.fill(255);
+    p.strokeWeight(1);
     p.rect(0, 0, this.size.x, this.size.y, 10);
 
     p.imageMode(p.CENTER);
@@ -60,12 +61,32 @@ export default class Gate {
 
     this.connectors.forEach(c => c.draw(p));
 
+    p.pop();
+  }
+
+  drawLabel(p) {
+    p.push();
+    p.translate(this.pos.x, this.pos.y);
+
     p.textAlign(p.CENTER, p.BOTTOM);
-    p.textSize(10);
-    p.fill(0);
-    p.text(this.id, 0.5 * this.size.x, -2);
+    p.textSize(20);
+    p.textFont("Futura");
+    p.textStyle(p.BOLD);
     p.textAlign(p.CENTER, p.TOP);
-    p.text(this.playerId || "", 0.5 * this.size.x, this.size.y + 2);
+    if (this.playerId) {
+      p.fill(200);
+      p.text(
+        this.playerId.slice(0, 8),
+        0.5 * this.size.x + 2,
+        this.size.y - 10
+      );
+    }
+    p.fill(0);
+    p.text(
+      (this.playerId && this.playerId.slice(0, 8)) || "🤖",
+      0.5 * this.size.x,
+      this.size.y - 12
+    );
     p.pop();
   }
 
