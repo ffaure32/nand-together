@@ -25,7 +25,7 @@ socket.on("player", function(data) {
 
 new p5(function(p) {
   p.preload = function() {
-    p.gateImage = p.loadImage(require("url-loader!../images/NAND.png"));
+    p.gateImage = p.loadImage(require("../images/NAND.png"));
   };
 
   p.setup = function() {

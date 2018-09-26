@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAH0lEQVQoU2NkYGD4z8DAwMhAABBUANM/qhBvSBIdPACgdAELiyknowAAAABJRU5ErkJggg==)
-    repeat;
+  background: url("../images/grid.png") repeat;
   image-rendering: pixelated;
 }

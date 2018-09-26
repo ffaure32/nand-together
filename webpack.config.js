@@ -7,6 +7,10 @@ module.exports = {
   module: {
     rules: [
       {
+        include: [path.resolve(__dirname, "src/client/images")],
+        loader: "url-loader"
+      },
+      {
         include: [path.resolve(__dirname, "src/client")],
         loader: "babel-loader",
 
