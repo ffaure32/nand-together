@@ -31,6 +31,7 @@ new p5(function(p) {
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.frameRate(20);
+    p.pixelDensity(1);
   };
 
   p.draw = function() {

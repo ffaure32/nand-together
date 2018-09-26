@@ -25,6 +25,8 @@ const player = new Player({ socket, id: playerId });
 new p5(function(p) {
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
+    p.frameRate(30);
+    p.pixelDensity(1);
   };
 
   p.windowResized = function() {
