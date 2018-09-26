@@ -63,6 +63,19 @@ module.exports = {
       chunks: ["editor"],
       template: path.resolve(__dirname, "src/client/template.html")
     }),
-    new CompressionPlugin(),
-  ]
+
+    new CompressionPlugin()
+  ],
+
+  devServer: {
+    compress: true,
+    host: "0.0.0.0",
+    overlay: true,
+    proxy: {
+      "/socket.io": {
+        target: "http://localhost:3000",
+        ws: true
+      }
+    }
+  }
 };
