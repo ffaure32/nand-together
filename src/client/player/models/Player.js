@@ -18,11 +18,11 @@ export default class Player {
     this.inputs = [
       {
         center: new Vector(0, 20),
-        state: false
+        state: null
       },
       {
         center: new Vector(0, this.gateSize - 20),
-        state: false
+        state: null
       }
     ];
 
@@ -77,9 +77,10 @@ export default class Player {
     p.scale(scaleFactor, scaleFactor);
 
     p.fill(0);
-    p.textAlign(p.CENTER, p.BOTTOM);
+    p.textAlign(p.CENTER, p.TOP);
+    p.textStyle(p.BOLD);
     p.textSize(24);
-    p.text(this.id, 160, 400);
+    p.text(this.id, 160, 5);
 
     this.buttons.forEach(b => {
       p.push();

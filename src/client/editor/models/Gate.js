@@ -138,6 +138,7 @@ export default class Gate {
 
   attachPlayer(playerId) {
     this.lastSentPlayerInputs = null;
+    this.output.state = null;
     this.playerId = playerId;
   }
 
