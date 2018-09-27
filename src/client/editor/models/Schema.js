@@ -1,10 +1,12 @@
 import Gate from "./Gate";
 import Input from "./Input";
+import Output from "./Output";
 import Wire from "./Wire";
 import { Vector } from "p5";
 import pull from "lodash/pull";
 import pullAll from "lodash/pullAll";
 import compact from "lodash/compact";
+import { convertOverline } from "../../common/utils";
 
 function debug(...args) {
   console.log(...args);
@@ -55,13 +57,17 @@ export default class Schema {
     p.textSize(24);
     p.textAlign(p.LEFT, p.BOTTOM);
     p.text(
-      `Gates: ${this.gates.length} / Players: ${
+      `Gates: ${this.playableGates().length} / Players: ${
         Object.keys(this.players).length
       }`,
       5,
       p.height - 5
     );
     p.pop();
+  }
+
+  playableGates() {
+    return this.gates.filter(g => g.type === "gate");
   }
 
   dragWire(connector, { x, y, dragging }) {
@@ -111,6 +117,8 @@ export default class Schema {
       switch (info.type) {
         case "input":
           return new Input(Object.assign({ schema: this }, info));
+        case "output":
+          return new Output(Object.assign({ schema: this }, info));
         default:
           return new Gate(Object.assign({ schema: this }, info));
       }
@@ -233,6 +241,9 @@ export default class Schema {
       case "i":
         this.addInput({ x, y });
         return true;
+      case "o":
+        this.addOutput({ x, y });
+        return true;
       case "s":
         this.savePrompt();
         return true;
@@ -248,14 +259,17 @@ export default class Schema {
     this.checkAssignments();
   }
 
-  convertOverline(label) {
-    return label.replace(/\/(.)/g, "$1\u0305");
-  }
-
   addInput({ x, y }) {
-    const label = this.convertOverline(prompt("Label?", ""));
+    const label = convertOverline(prompt("Label?", ""));
     this.gates.push(
       new Input({ schema: this, pos: this.snapToGrid({ x, y }), label })
+    );
+  }
+
+  addOutput({ x, y }) {
+    const label = convertOverline(prompt("Label?", ""));
+    this.gates.push(
+      new Output({ schema: this, pos: this.snapToGrid({ x, y }), label })
     );
   }
 
@@ -283,7 +297,7 @@ export default class Schema {
         this.players[playerId] = null;
       }
     });
-    this.gates.forEach(g => {
+    this.playableGates().forEach(g => {
       if (!g.playerId) {
         const availablePlayerId = Object.keys(this.players).find(
           playerId => !this.players[playerId]

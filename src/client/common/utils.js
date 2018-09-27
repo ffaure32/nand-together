@@ -16,5 +16,10 @@ module.exports = {
     } else {
       return "gray";
     }
+  },
+
+  convertOverline(label) {
+    if (!label) return label;
+    return label.replace(/\/(.)/g, "$1\u0305");
   }
 };

@@ -9,7 +9,7 @@ export default class Connector {
     this.size = new Vector(20, 20);
     this.center = center;
     this.pos = Vector.sub(center, Vector.mult(this.size, 0.5));
-    this.state = state;
+    this.state = typeof state === "boolean" ? state : false;
   }
 
   draw(p) {

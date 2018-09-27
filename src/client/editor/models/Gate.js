@@ -2,6 +2,7 @@ import { Vector } from "p5";
 import chance from "../../common/chance";
 import Connector from "./Connector";
 import { containsPoint } from "../../common/utils";
+import { convertOverline } from "../../common/utils";
 
 export default class Gate {
   constructor({ id, pos, state, playerId, schema } = {}) {
@@ -16,8 +17,7 @@ export default class Gate {
       gate: this,
       index: 0,
       dir: "output",
-      center: new Vector(this.size.x, 0.5 * this.size.y),
-      state: state && state.output
+      center: new Vector(this.size.x, 0.5 * this.size.y)
     });
 
     this.inputs = [
@@ -25,19 +25,26 @@ export default class Gate {
         gate: this,
         index: 1,
         dir: "input",
-        center: new Vector(0, 20),
-        state: state && state.inputs && state.inputs[0]
+        center: new Vector(0, 20)
       }),
       new Connector({
         gate: this,
         index: 2,
         dir: "input",
-        center: new Vector(0, this.size.y - 20),
-        state: state && state.inputs && state.inputs[1]
+        center: new Vector(0, this.size.y - 20)
       })
     ];
 
     this.connectors = [this.output, ...this.inputs];
+    this.applyState(state);
+  }
+
+  applyState(state) {
+    if (Array.isArray(state)) {
+      this.connectors.forEach((c, i) => {
+        c.state = typeof state[i] === "boolean" ? state[i] : false;
+      });
+    }
   }
 
   draw(p) {
@@ -139,10 +146,7 @@ export default class Gate {
       id: this.id,
       type: this.type,
       pos: { x: this.pos.x, y: this.pos.y },
-      state: {
-        inputs: this.inputs.map(c => c.state),
-        output: this.output.state
-      }
+      state: this.connectors.map(c => c.state)
     };
   }
 
@@ -205,10 +209,18 @@ export default class Gate {
     }
 
     if (containsPoint(this, x, y)) {
-      if (key === "x") {
-        this.schema.deleteGate(this);
+      switch (key) {
+        case "x":
+          this.schema.deleteGate(this);
+          return true;
+        case "e":
+          if (this.type === "input" || this.type === "output") {
+            this.label =
+              convertOverline(prompt("Label?", this.label)) || this.label;
+            return true;
+          }
+          break;
       }
-      return true;
     }
     return false;
   }

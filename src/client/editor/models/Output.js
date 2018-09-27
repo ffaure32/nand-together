@@ -1,23 +1,24 @@
 import { Vector } from "p5";
 import Connector from "./Connector";
-import { containsPoint } from "../../common/utils";
 import Gate from "./Gate";
 
-export default class Input extends Gate {
+export default class Output extends Gate {
   constructor({ id, pos, state, playerId, schema, label }) {
     super({ id, pos, state, playerId, schema });
-    this.type = "input";
+    this.type = "output";
     this.label = label;
     this.size = new Vector(50, 40);
-    this.inputs = [];
-    this.output = new Connector({
-      gate: this,
-      index: 0,
-      dir: "output",
-      center: new Vector(this.size.x, 0.5 * this.size.y),
-      state: state && state.output
-    });
-    this.connectors = [this.output];
+    this.output = null;
+    this.inputs = [
+      new Connector({
+        gate: this,
+        index: 1,
+        dir: "input",
+        center: new Vector(0, 0.5 * this.size.y),
+        state: state && state.inputs && state.inputs[0]
+      })
+    ];
+    this.connectors = [...this.inputs];
     this.applyState(state);
   }
 
@@ -30,11 +31,11 @@ export default class Input extends Gate {
     p.rect(0, 0, this.size.x, this.size.y, 10);
 
     p.push();
-    p.textAlign(p.LEFT, p.CENTER);
+    p.textAlign(p.RIGHT, p.CENTER);
     p.textSize(24);
     p.noStroke();
     p.fill(0);
-    p.text(this.label || "?", 10, 0.5 * this.size.y);
+    p.text(this.label || "?", this.size.x - 10, 0.5 * this.size.y);
     p.pop();
 
     this.connectors.forEach(c => c.draw(p));
