@@ -104,7 +104,10 @@ export default class Schema {
   }
 
   loadPrompt() {
-    const fileName = prompt("Load from?", this.storage.get("currentFile"));
+    const fileName = prompt(
+      `Load from? (${this.storage.list().join("|")})`,
+      this.storage.get("currentFile")
+    );
     if (fileName) {
       this.load(fileName);
     }
@@ -191,8 +194,10 @@ export default class Schema {
   }
 
   resolveConnectorRef(connectorRef) {
-    return this.gates.find(g => g.id === connectorRef.gate).connectors[
-      connectorRef.index
+    const gate = this.gates.find(g => g.id === connectorRef.gate);
+    return gate.connectors[
+      // oops, recover from bad save
+      Math.min(connectorRef.index, gate.connectors.length - 1)
     ];
   }
 

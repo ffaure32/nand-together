@@ -11,6 +11,17 @@ const storage = {
 
   set(fileName, data) {
     localStorage.setItem(fileName, data);
+  },
+
+  list() {
+    const result = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (localStorage.getItem(key).match(/^\{.*"gates"/)) {
+        result.push(key);
+      }
+    }
+    return result;
   }
 };
 
@@ -56,3 +67,5 @@ new p5(function(p) {
     return false;
   };
 });
+
+window.NAND = { schema };
