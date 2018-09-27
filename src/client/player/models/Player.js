@@ -57,16 +57,7 @@ export default class Player {
     });
 
     socket.on("update", ({ inputs }) => {
-      let changed = false;
-      this.inputs.forEach((v, i) => {
-        if (this.inputs[i].state !== inputs[i]) {
-          changed = true;
-          this.inputs[i].state = inputs[i];
-        }
-      });
-      if (changed) {
-        this.output.state = null;
-      }
+      this.output.state = null;
     });
   }
 

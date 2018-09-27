@@ -1,35 +1,32 @@
 const EventEmitter = require("events");
-const debug = require("debug")("server");
+const debug = require("debug")("nand:editor-handler");
 
 module.exports = class EditorHandler extends EventEmitter {
-  constructor({ players, playerEvents }) {
+  constructor({ players, sendPlayerToClient }) {
     super();
     this.players = players;
-    this.playerEvents = playerEvents;
-    this._onPlayer = this.onPlayer.bind(this);
+    this._onPlayerUpdated = this.onPlayerUpdated.bind(this);
+    this.sendPlayerToClient = sendPlayerToClient;
   }
 
   connect() {
-    this.players.forEach(p =>
-      this.emit("player", { playerId: p.playerId, present: true })
+    this.players.forEachPresent(p =>
+      this.sendPlayerToClient({ playerId: p.playerId, present: true })
     );
 
-    this.playerEvents.on("player", this._onPlayer);
+    this.players.on("player-updated", this._onPlayerUpdated);
   }
 
   disconnect() {
-    this.playerEvents.removeListener("player", this._onPlayer);
+    this.players.removeListener("player-updated", this._onPlayerUpdated);
   }
 
-  onPlayer(data) {
-    this.emit("player", data);
+  onPlayerUpdated(playerData) {
+    this.sendPlayerToClient(playerData);
   }
 
-  onUpdate(data) {
+  receiveFromClient(data) {
     const { playerId, ...update } = data;
-    const player = this.players.find(p => p.playerId === playerId);
-    if (player) {
-      player.update(update);
-    }
+    this.players.deliverUpdate(playerId, update);
   }
 };

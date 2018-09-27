@@ -19,6 +19,20 @@ describe("The server", function() {
     });
   });
 
+  function connectEditor() {
+    return connectClient(serverUrl, {
+      ...clientOpts,
+      query: { isEditor: true }
+    });
+  }
+
+  function connectPlayer(playerId) {
+    return connectClient(serverUrl, {
+      ...clientOpts,
+      query: { playerId }
+    });
+  }
+
   afterEach(function(done) {
     if (player) {
       player.disconnect();
@@ -31,10 +45,7 @@ describe("The server", function() {
 
   describe("when an editor is connected", function() {
     beforeEach(function(done) {
-      editor = connectClient(serverUrl, {
-        ...clientOpts,
-        query: { isEditor: true }
-      });
+      editor = connectEditor();
 
       editor.on("connect", done);
     });
@@ -48,20 +59,14 @@ describe("The server", function() {
         done();
       });
 
-      player = connectClient(serverUrl, {
-        ...clientOpts,
-        query: { playerId: "aPlayer" }
-      });
+      player = connectPlayer("aPlayer");
     });
 
     describe("when a player is connected", function() {
       beforeEach(function(done) {
         editor.once("player", () => done());
 
-        player = connectClient(serverUrl, {
-          ...clientOpts,
-          query: { playerId: "aPlayer" }
-        });
+        player = connectPlayer("aPlayer");
       });
 
       it("echoes output messages from players", function(done) {
@@ -89,6 +94,25 @@ describe("The server", function() {
         player = null;
       });
 
+      it("notifies editor of player disconnection when last connection is gone", function(done) {
+        const samePlayerConnectedAgain = connectPlayer("aPlayer");
+
+        samePlayerConnectedAgain.on("connect", function() {
+          editor.once("player", function(data) {
+            expect(data).to.deep.equal({
+              playerId: "aPlayer",
+              present: false
+            });
+            done();
+          });
+
+          player.disconnect();
+          player = null;
+
+          samePlayerConnectedAgain.disconnect();
+        });
+      });
+
       it("relays update messages from editor to players", function(done) {
         player.once("update", function(data) {
           expect(data).to.deep.equal({
@@ -98,23 +122,34 @@ describe("The server", function() {
         });
         editor.emit("update", { playerId: "aPlayer", inputs: [true, false] });
       });
+
+      it("replays update to new connections for the same player", function(done) {
+        player.once("update", function(data) {
+          const samePlayerConnectedAgain = connectPlayer("aPlayer");
+
+          samePlayerConnectedAgain.on("connect", function() {
+            samePlayerConnectedAgain.once("update", function(data) {
+              expect(data).to.deep.equal({
+                inputs: [true, false]
+              });
+              samePlayerConnectedAgain.disconnect();
+              done();
+            });
+          });
+        });
+        editor.emit("update", { playerId: "aPlayer", inputs: [true, false] });
+      });
     });
   });
 
   describe("when a player is connected", function() {
     beforeEach(function(done) {
-      player = connectClient(serverUrl, {
-        ...clientOpts,
-        query: { playerId: "aPlayer" }
-      });
+      player = connectPlayer("aPlayer");
       player.on("connect", done);
     });
 
     it("notifies editor of player presence on connection", function(done) {
-      editor = connectClient(serverUrl, {
-        ...clientOpts,
-        query: { isEditor: true }
-      });
+      editor = connectEditor();
 
       editor.once("player", function(data) {
         expect(data).to.deep.equal({

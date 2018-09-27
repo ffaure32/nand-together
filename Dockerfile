@@ -27,4 +27,6 @@ COPY --from=build /app/public/ /app/public/
 
 EXPOSE 3000
 
+ENV DEBUG=nand:*
+
 CMD ["node", "bin/www"]
