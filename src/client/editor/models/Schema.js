@@ -14,6 +14,7 @@ export default class Schema {
     this.storage = storage;
     this.gates = [];
     this.wires = [];
+    this.players = Object.create(null);
     this.gridSize = 10;
   }
 
@@ -25,6 +26,19 @@ export default class Schema {
     p.textSize(32);
     p.textAlign(p.LEFT, p.TOP);
     p.text(`Connect to: ${location.protocol}//${location.host}`, 5, 5);
+    p.pop();
+
+    p.push();
+    p.fill(0);
+    p.textSize(24);
+    p.textAlign(p.LEFT, p.BOTTOM);
+    p.text(
+      `Gates: ${this.gates.length} / Players: ${
+        Object.keys(this.players).length
+      }`,
+      5,
+      p.height - 5
+    );
     p.pop();
 
     this.gates.forEach(g => g.draw(p));
@@ -89,29 +103,32 @@ export default class Schema {
     }
   }
 
+  newPlayer(playerId) {
+    this.players[playerId] = null;
+    this.checkAssignments();
+  }
+
+  playerGone(playerId) {
+    const controlledGate = this.gates.find(gate => gate.playerId === playerId);
+    if (controlledGate) {
+      debug(`player ${playerId} releasing gate ${controlledGate.id}`);
+      controlledGate.attachPlayer(null);
+    }
+    delete this.players[playerId];
+    this.checkAssignments();
+  }
+
   playerUpdate(data) {
     const { playerId } = data;
-    const controlledGate = this.gates.find(gate => gate.playerId === playerId);
     if ("output" in data) {
       this.gates.filter(gate => gate.playerId === playerId).forEach(gate => {
         gate.update(data);
       });
     } else if ("present" in data) {
       if (data.present) {
-        if (!controlledGate) {
-          const availableGate = this.gates.find(gate => !gate.playerId);
-          if (availableGate) {
-            debug(
-              `player ${playerId} taking control of gate ${availableGate.id}`
-            );
-            availableGate.attachPlayer(playerId);
-          }
-        }
+        this.newPlayer(data.playerId);
       } else {
-        if (controlledGate) {
-          debug(`player ${playerId} releasing gate ${controlledGate.id}`);
-          controlledGate.attachPlayer(null);
-        }
+        this.playerGone(data.playerId);
       }
     }
     this.save();
@@ -184,18 +201,54 @@ export default class Schema {
     }
     const { x, y, key } = eventData;
     if (key === "c") {
-      this.gates.push(
-        new Gate({ schema: this, pos: this.snapToGrid({ x, y }) })
-      );
+      this.addGate({ x, y });
     }
     return false;
+  }
+
+  addGate({ x, y }) {
+    this.gates.push(new Gate({ schema: this, pos: this.snapToGrid({ x, y }) }));
+    this.checkAssignments();
+    this.save();
   }
 
   deleteGate(gate) {
     const deadWires = this.wires.filter(w => w.isConnectedTo(gate));
     pullAll(this.wires, deadWires);
     pull(this.gates, gate);
+    this.checkAssignments();
     this.save();
+  }
+
+  checkAssignments() {
+    this.gates.forEach(g => {
+      if (g.playerId) {
+        if (!(g.playerId in this.players)) {
+          debug(`player ${g.playerId} releasing gate ${g.id}`);
+          g.attachPlayer(null);
+        } else {
+          this.players[g.playerId] = g;
+        }
+      }
+    });
+    Object.keys(this.players).forEach(playerId => {
+      const gate = this.players[playerId];
+      if (this.gates.indexOf(gate) < 0) {
+        this.players[playerId] = null;
+      }
+    });
+    this.gates.forEach(g => {
+      if (!g.playerId) {
+        const availablePlayerId = Object.keys(this.players).find(
+          playerId => !this.players[playerId]
+        );
+        if (availablePlayerId) {
+          debug(`player ${availablePlayerId} taking control of gate ${g.id}`);
+          this.players[availablePlayerId] = g;
+          g.attachPlayer(availablePlayerId);
+        }
+      }
+    });
   }
 }
 
