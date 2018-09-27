@@ -9,4 +9,4 @@ $ npm install
 $ npm start
 ```
 
-Then open http://localhost:3000/ or http://localhost:3000/editor.html .
+Then open http://localhost:8080/ and http://localhost:8080/editor.html .
