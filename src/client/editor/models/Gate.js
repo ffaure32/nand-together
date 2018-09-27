@@ -6,6 +6,7 @@ import { containsPoint } from "../../common/utils";
 export default class Gate {
   constructor({ id, pos, state, playerId, schema } = {}) {
     this.id = id || chance.word({ length: 8 });
+    this.type = "gate";
     this.playerId = playerId;
     this.pos = pos ? new Vector(pos.x, pos.y) : new Vector(50, 100);
     this.size = new Vector(80, 80);
@@ -136,12 +137,12 @@ export default class Gate {
   toJSON() {
     return {
       id: this.id,
-      pos: this.pos,
+      type: this.type,
+      pos: { x: this.pos.x, y: this.pos.y },
       state: {
         inputs: this.inputs.map(c => c.state),
         output: this.output.state
       }
-      //playerId: this.playerId
     };
   }
 

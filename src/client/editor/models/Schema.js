@@ -1,4 +1,5 @@
 import Gate from "./Gate";
+import Input from "./Input";
 import Wire from "./Wire";
 import { Vector } from "p5";
 import pull from "lodash/pull";
@@ -78,13 +79,11 @@ export default class Schema {
   }
 
   savePrompt() {
-    setTimeout(() => {
-      const fileName = prompt("Save to?", this.storage.get("currentFile"));
-      if (fileName) {
-        this.save(fileName);
-        this.storage.set("currentFile", fileName);
-      }
-    }, 200);
+    const fileName = prompt("Save to?", this.storage.get("currentFile"));
+    if (fileName) {
+      this.save(fileName);
+      this.storage.set("currentFile", fileName);
+    }
   }
 
   save(fileName) {
@@ -99,20 +98,23 @@ export default class Schema {
   }
 
   loadPrompt() {
-    setTimeout(() => {
-      const fileName = prompt("Load from?", this.storage.get("currentFile"));
-      if (fileName) {
-        this.load(fileName);
-      }
-    }, 200);
+    const fileName = prompt("Load from?", this.storage.get("currentFile"));
+    if (fileName) {
+      this.load(fileName);
+    }
   }
 
   load(fileName) {
     debug(`loading from ${fileName}…`);
     const store = JSON.parse(this.storage.get(fileName));
-    this.gates = store.gates.map(
-      info => new Gate(Object.assign({ schema: this }, info))
-    );
+    this.gates = store.gates.map(info => {
+      switch (info.type) {
+        case "input":
+          return new Input(Object.assign({ schema: this }, info));
+        default:
+          return new Gate(Object.assign({ schema: this }, info));
+      }
+    });
     this.wires = store.wires.map(
       info => new Wire(Object.assign({ schema: this }, info))
     );
@@ -219,6 +221,7 @@ export default class Schema {
   }
 
   keyTyped(p, eventData) {
+    p._lastKeyCodeTyped = null; // Sigh
     if (this.dispatchToGates(p, "keyTyped", eventData)) {
       return true;
     }
@@ -226,6 +229,9 @@ export default class Schema {
     switch (key) {
       case "c":
         this.addGate({ x, y });
+        return true;
+      case "i":
+        this.addInput({ x, y });
         return true;
       case "s":
         this.savePrompt();
@@ -240,6 +246,17 @@ export default class Schema {
   addGate({ x, y }) {
     this.gates.push(new Gate({ schema: this, pos: this.snapToGrid({ x, y }) }));
     this.checkAssignments();
+  }
+
+  convertOverline(label) {
+    return label.replace(/\/(.)/g, "$1\u0305");
+  }
+
+  addInput({ x, y }) {
+    const label = this.convertOverline(prompt("Label?", ""));
+    this.gates.push(
+      new Input({ schema: this, pos: this.snapToGrid({ x, y }), label })
+    );
   }
 
   deleteGate(gate) {
