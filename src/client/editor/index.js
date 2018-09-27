@@ -36,6 +36,7 @@ socket.on("player", function(data) {
 
 new p5(function(p) {
   p.preload = function() {
+    p.heartImage = p.loadImage(require("../images/heart.png"));
     p.gateImage = p.loadImage(require("../images/NAND.png"));
   };
 

@@ -33,6 +33,7 @@ export default class Player {
 
     this.buttons = [
       {
+        type: "state",
         center: new Vector(
           250,
           this.gatePos.y + 0.5 * this.gateSize - 0.5 * this.buttonSize - 40
@@ -40,11 +41,16 @@ export default class Player {
         targetState: true
       },
       {
+        type: "state",
         center: new Vector(
           250,
           this.gatePos.y + 0.5 * this.gateSize + 0.5 * this.buttonSize + 40
         ),
         targetState: false
+      },
+      {
+        type: "heart",
+        center: new Vector(40, 300)
       }
     ];
 
@@ -79,23 +85,36 @@ export default class Player {
     this.buttons.forEach(b => {
       p.push();
 
-      [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([x, y]) => {
-        const corner = new Vector(
-          b.center.x + x * 0.5 * this.buttonSize,
-          b.center.y + y * 0.5 * this.buttonSize
-        );
-        p.line(
-          corner.x,
-          corner.y,
-          this.gatePos.x + this.output.center.x,
-          this.gatePos.y + this.output.center.y
-        );
-      });
+      if (b.type === "state") {
+        [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([x, y]) => {
+          const corner = new Vector(
+            b.center.x + x * 0.5 * this.buttonSize,
+            b.center.y + y * 0.5 * this.buttonSize
+          );
+          p.line(
+            corner.x,
+            corner.y,
+            this.gatePos.x + this.output.center.x,
+            this.gatePos.y + this.output.center.y
+          );
+        });
 
-      p.fill(colorForState(b.targetState));
-      p.rectMode(p.CENTER);
-      p.strokeWeight(3);
-      p.rect(b.center.x, b.center.y, this.buttonSize, this.buttonSize);
+        p.fill(colorForState(b.targetState));
+        p.rectMode(p.CENTER);
+        p.strokeWeight(3);
+        p.rect(b.center.x, b.center.y, this.buttonSize, this.buttonSize);
+      } else if (b.type === "heart") {
+        p.imageMode(p.CENTER);
+        p.noSmooth();
+        p.image(
+          p.heartImage,
+          b.center.x,
+          b.center.y,
+          this.buttonSize,
+          this.buttonSize
+        ); //b.pos.x, b.pos.y, b.size.x, b.size.y);
+      }
+
       p.pop();
     });
 
@@ -170,8 +189,12 @@ export default class Player {
     y /= scaleFactor;
     this.buttons.forEach(b => {
       if (containsPoint(b, x, y)) {
-        this.output.state = b.targetState;
-        this.socket.emit("output", { state: this.output.state });
+        if (b.type === "state") {
+          this.output.state = b.targetState;
+          this.socket.emit("output", { state: this.output.state });
+        } else if (b.type === "heart") {
+          this.socket.emit("heart", {});
+        }
       }
     });
   }

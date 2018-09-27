@@ -224,4 +224,11 @@ export default class Gate {
     }
     return false;
   }
+
+  center() {
+    return new Vector(
+      this.pos.x + 0.5 * this.size.x,
+      this.pos.y + 0.5 * this.size.y
+    );
+  }
 }

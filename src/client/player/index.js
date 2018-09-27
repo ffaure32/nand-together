@@ -24,6 +24,7 @@ const player = new Player({ socket, id: playerId });
 
 new p5(function(p) {
   p.preload = function() {
+    p.heartImage = p.loadImage(require("../images/heart.png"));
     p.gateImage = p.loadImage(require("../images/NAND.png"));
     p.truthTableImage = p.loadImage(require("../images/truth-table.png"));
   };

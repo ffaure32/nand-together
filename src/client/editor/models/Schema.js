@@ -1,6 +1,7 @@
 import Gate from "./Gate";
 import Input from "./Input";
 import Output from "./Output";
+import Heart from "./Heart";
 import Wire from "./Wire";
 import { Vector } from "p5";
 import pull from "lodash/pull";
@@ -17,6 +18,7 @@ export default class Schema {
     this.storage = storage;
     this.gates = [];
     this.wires = [];
+    this.hearts = [];
     this.players = Object.create(null);
     this.gridSize = 10;
   }
@@ -64,6 +66,8 @@ export default class Schema {
       p.height - 5
     );
     p.pop();
+
+    this.hearts.forEach(h => h.draw(p));
   }
 
   playableGates() {
@@ -168,6 +172,8 @@ export default class Schema {
       } else {
         this.playerGone(data.playerId);
       }
+    } else if ("heart" in data) {
+      this.addHeart(data.playerId);
     }
   }
 
@@ -276,6 +282,16 @@ export default class Schema {
     this.gates.push(
       new Output({ schema: this, pos: this.snapToGrid({ x, y }), label })
     );
+  }
+
+  addHeart(playerId) {
+    const gate = this.players[playerId];
+    if (!gate) {
+      debug(`no gate for heart from player ${playerId} :(`);
+      return;
+    }
+    const pos = gate.center();
+    this.hearts.push(new Heart({ schema: this, pos }));
   }
 
   deleteGate(gate) {

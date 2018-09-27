@@ -43,6 +43,11 @@ module.exports = class PlayerCollection extends EventEmitter {
     player.removeConnection(handler);
   }
 
+  sendHeart(playerId) {
+    debug(`about to send heart for player ${playerId}`);
+    this.emit("heart", { playerId });
+  }
+
   dump() {
     return [...this.players.values()].map(p => p.dump());
   }
