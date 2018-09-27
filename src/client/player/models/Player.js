@@ -100,6 +100,7 @@ export default class Player {
 
       p.fill(colorForState(b.targetState));
       p.rectMode(p.CENTER);
+      p.strokeWeight(3);
       p.rect(b.center.x, b.center.y, this.buttonSize, this.buttonSize);
       p.pop();
     });
@@ -152,6 +153,12 @@ export default class Player {
       p.rect(0, 0, this.connectorSize, this.connectorSize);
       p.pop();
     });
+    p.pop();
+
+    p.push();
+    p.imageMode(p.CENTER);
+    p.noSmooth();
+    p.image(p.truthTableImage, 160, 360, 140, 140);
     p.pop();
 
     p.pop();
