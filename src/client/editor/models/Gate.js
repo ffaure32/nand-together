@@ -72,13 +72,26 @@ export default class Gate {
     p.textSize(20);
     p.textFont("Futura");
     p.textStyle(p.BOLD);
-    p.textAlign(p.CENTER, p.TOP);
     if (this.playerId) {
-      p.fill(200);
-      p.text(this.playerId, 0.5 * this.size.x + 2, this.size.y - 10);
+      p.push();
+      p.rectMode(p.CENTER);
+      p.fill(255);
+      p.stroke(0);
+      p.strokeWeight(1);
+      p.noSmooth();
+      p.rect(
+        0.5 * this.size.x,
+        this.size.y + 8,
+        p.textWidth(this.playerId) + 4,
+        28,
+        5,
+        5
+      );
+      p.pop();
     }
+    p.textAlign(p.CENTER, p.TOP);
     p.fill(this.output.isDetermined() ? 0 : "orange");
-    p.text(this.playerId || "🤖", 0.5 * this.size.x, this.size.y - 12);
+    p.text(this.playerId || "🤖", 0.5 * this.size.x, this.size.y - 6);
     p.pop();
   }
 
