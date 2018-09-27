@@ -39,6 +39,14 @@ export default class Schema {
       p.line(x, y, connectorPos.x, connectorPos.y);
       p.pop();
     }
+
+    if (this.simulationBlocked) {
+      p.push();
+      p.textSize(40 + 5 * Math.cos(p.millis() / 200));
+      p.textAlign(p.CENTER, p.CENTER);
+      p.text("⌛️", p.width - 50, 50);
+      p.pop();
+    }
   }
 
   dragWire(connector, { x, y, dragging }) {
@@ -139,7 +147,12 @@ export default class Schema {
 
   simulate() {
     this.gates.forEach(g => g.simulate());
-    this.wires.forEach(w => w.simulate());
+    if (this.wires.every(w => w.canSimulate())) {
+      this.wires.forEach(w => w.simulate());
+      this.simulationBlocked = false;
+    } else {
+      this.simulationBlocked = true;
+    }
   }
 
   neededPlayerUpdates() {

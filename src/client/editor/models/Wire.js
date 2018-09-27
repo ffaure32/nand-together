@@ -14,6 +14,12 @@ export default class Wire {
       inputConnector || this.schema.resolveConnectorRef(inputConnectorRef);
     this.outputConnector =
       outputConnector || this.schema.resolveConnectorRef(outputConnectorRef);
+    if (this.inputConnector.dir === "input") {
+      [this.outputConnector, this.inputConnector] = [
+        this.inputConnector,
+        this.outputConnector
+      ];
+    }
   }
 
   draw(p) {
@@ -62,11 +68,11 @@ export default class Wire {
     );
   }
 
+  canSimulate() {
+    return this.inputConnector.isDetermined();
+  }
+
   simulate() {
-    if (this.inputConnector.dir === "output") {
-      this.outputConnector.state = this.inputConnector.state;
-    } else {
-      this.inputConnector.state = this.outputConnector.state;
-    }
+    this.outputConnector.state = this.inputConnector.state;
   }
 }

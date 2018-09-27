@@ -1,5 +1,5 @@
 import { Vector } from "p5";
-import { containsPoint } from "../../common/utils";
+import { containsPoint, colorForState } from "../../common/utils";
 
 export default class Connector {
   constructor({ gate, index, dir, center, state } = {}) {
@@ -15,7 +15,7 @@ export default class Connector {
   draw(p) {
     p.push();
     p.translate(this.pos.x, this.pos.y);
-    p.fill(this.state ? p.color(0, 255, 0) : p.color(255, 0, 0));
+    p.fill(colorForState(this.state));
     p.rectMode(p.CORNER);
     p.rect(0, 0, this.size.x, this.size.y);
     p.pop();
@@ -63,5 +63,9 @@ export default class Connector {
 
   allowConnection(targetConnector) {
     return targetConnector !== this && this.dir !== targetConnector.dir;
+  }
+
+  isDetermined() {
+    return typeof this.state === "boolean";
   }
 }

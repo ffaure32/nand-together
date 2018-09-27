@@ -10,7 +10,7 @@ function getPlayerId() {
   if (typeof storedId === "string" && storedId.length > 4) {
     return storedId;
   } else {
-    const newId = chance.word({ length: 16 });
+    const newId = chance.word({ length: 8 });
     localStorage.setItem("playerId", newId);
     return newId;
   }
@@ -23,6 +23,10 @@ const socket = io({ query: { playerId } });
 const player = new Player({ socket, id: playerId });
 
 new p5(function(p) {
+  p.preload = function() {
+    p.gateImage = p.loadImage(require("../images/NAND.png"));
+  };
+
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.frameRate(30);
@@ -34,7 +38,7 @@ new p5(function(p) {
   };
 
   p.draw = function() {
-    p.background(130, 130, 240);
+    p.clear();
 
     player.draw(p);
   };

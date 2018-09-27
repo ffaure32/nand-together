@@ -75,18 +75,10 @@ export default class Gate {
     p.textAlign(p.CENTER, p.TOP);
     if (this.playerId) {
       p.fill(200);
-      p.text(
-        this.playerId.slice(0, 8),
-        0.5 * this.size.x + 2,
-        this.size.y - 10
-      );
+      p.text(this.playerId, 0.5 * this.size.x + 2, this.size.y - 10);
     }
-    p.fill(0);
-    p.text(
-      (this.playerId && this.playerId.slice(0, 8)) || "🤖",
-      0.5 * this.size.x,
-      this.size.y - 12
-    );
+    p.fill(this.output.isDetermined() ? 0 : "orange");
+    p.text(this.playerId || "🤖", 0.5 * this.size.x, this.size.y - 12);
     p.pop();
   }
 
@@ -178,7 +170,14 @@ export default class Gate {
   simulate() {
     if (!this.playerId) {
       this.output.state = !(this.inputs[0].state && this.inputs[1].state);
+    } else {
+      if (this.inputs.some(i => i.lastState !== i.state)) {
+        this.output.state = null;
+      }
     }
+    this.inputs.forEach(i => {
+      i.lastState = i.state;
+    });
   }
 
   keyTyped(p, { x, y, key }) {
