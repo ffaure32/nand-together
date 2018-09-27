@@ -12,7 +12,7 @@ export default class Output extends Gate {
     this.inputs = [
       new Connector({
         gate: this,
-        index: 1,
+        index: 0,
         dir: "input",
         center: new Vector(0, 0.5 * this.size.y),
         state: state && state.inputs && state.inputs[0]
