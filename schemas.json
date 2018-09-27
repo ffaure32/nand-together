@@ -3,168 +3,168 @@
     "gates": [
       {
         "id": "misnepco",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 190,
-          "z": 0
+          "y": 190
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lugguzon",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 190,
-          "z": 0
+          "y": 190
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "vejvinun",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 80,
-          "z": 0
+          "y": 80
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "eklavini",
+        "type": "gate",
         "pos": {
           "x": 540,
-          "y": 290,
-          "z": 0
+          "y": 290
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lawawuti",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 80,
-          "z": 0
+          "y": 80
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "osudebuv",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 80,
-          "z": 0
+          "y": 80
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "toceluge",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 190,
-          "z": 0
+          "y": 190
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "sagovcem",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 80,
-          "z": 0
+          "y": 80
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "banfakah",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 190,
-          "z": 0
+          "y": 190
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
-        "id": "kebiwawp",
+        "id": "fokjudce",
+        "type": "input",
         "pos": {
-          "x": 220,
-          "y": 210,
-          "z": 0
+          "x": 240,
+          "y": 100
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true
+        ],
+        "label": "D"
       },
       {
-        "id": "dacgavdi",
+        "id": "ancubuwp",
+        "type": "input",
         "pos": {
-          "x": 220,
-          "y": 110,
-          "z": 0
+          "x": 240,
+          "y": 210
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false
+        ],
+        "label": "C"
+      },
+      {
+        "id": "ogzusmet",
+        "type": "output",
+        "pos": {
+          "x": 1040,
+          "y": 100
+        },
+        "state": [
+          true
+        ],
+        "label": "Q"
+      },
+      {
+        "id": "bujantub",
+        "type": "output",
+        "pos": {
+          "x": 1040,
+          "y": 210
+        },
+        "state": [
+          false
+        ],
+        "label": "Q̅"
       }
     ],
     "wires": [
@@ -270,26 +270,6 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
           "gate": "banfakah",
           "index": 0
         },
@@ -320,7 +300,37 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "fokjudce",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "sagovcem",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "ancubuwp",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "sagovcem",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "ancubuwp",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "banfakah",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "ancubuwp",
           "index": 0
         },
         "outputConnectorRef": {
@@ -330,7 +340,7 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "ancubuwp",
           "index": 0
         },
         "outputConnectorRef": {
@@ -340,4352 +350,520 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "dacgavdi",
+          "gate": "vejvinun",
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
+          "gate": "ogzusmet",
+          "index": 0
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "misnepco",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "bujantub",
+          "index": 0
         }
       }
     ]
   },
-  "Dff2": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 840,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 720,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 840,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 540,
-          "y": 290,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 720,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv",
-        "pos": {
-          "x": 530,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge",
-        "pos": {
-          "x": 530,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem",
-        "pos": {
-          "x": 410,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah",
-        "pos": {
-          "x": 410,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawp",
-        "pos": {
-          "x": 220,
-          "y": 210,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "dacgavdi",
-        "pos": {
-          "x": 220,
-          "y": 110,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepco2",
-        "pos": {
-          "x": 840,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon2",
-        "pos": {
-          "x": 720,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun2",
-        "pos": {
-          "x": 840,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini2",
-        "pos": {
-          "x": 540,
-          "y": 610,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti2",
-        "pos": {
-          "x": 720,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv2",
-        "pos": {
-          "x": 530,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge2",
-        "pos": {
-          "x": 530,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem2",
-        "pos": {
-          "x": 410,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah2",
-        "pos": {
-          "x": 410,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawp2",
-        "pos": {
-          "x": 220,
-          "y": 530,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "dacgavdi2",
-        "pos": {
-          "x": 220,
-          "y": 430,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdi2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 2
-        }
-      }
-    ]
-  },
-  "Dff4": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 840,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 720,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 840,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 540,
-          "y": 290,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 720,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv",
-        "pos": {
-          "x": 530,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge",
-        "pos": {
-          "x": 530,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem",
-        "pos": {
-          "x": 410,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah",
-        "pos": {
-          "x": 410,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawp",
-        "pos": {
-          "x": 220,
-          "y": 210,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "dacgavdi",
-        "pos": {
-          "x": 220,
-          "y": 110,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepco2",
-        "pos": {
-          "x": 840,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon2",
-        "pos": {
-          "x": 720,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun2",
-        "pos": {
-          "x": 840,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini2",
-        "pos": {
-          "x": 540,
-          "y": 610,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti2",
-        "pos": {
-          "x": 720,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv2",
-        "pos": {
-          "x": 530,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge2",
-        "pos": {
-          "x": 530,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem2",
-        "pos": {
-          "x": 410,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah2",
-        "pos": {
-          "x": 410,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawp2",
-        "pos": {
-          "x": 220,
-          "y": 530,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "dacgavdi2",
-        "pos": {
-          "x": 220,
-          "y": 430,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepcob",
-        "pos": {
-          "x": 1640,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzonb",
-        "pos": {
-          "x": 1520,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinunb",
-        "pos": {
-          "x": 1640,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavinib",
-        "pos": {
-          "x": 1340,
-          "y": 290,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawutib",
-        "pos": {
-          "x": 1520,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuvb",
-        "pos": {
-          "x": 1330,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "tocelugeb",
-        "pos": {
-          "x": 1330,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcemb",
-        "pos": {
-          "x": 1210,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakahb",
-        "pos": {
-          "x": 1210,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawpb",
-        "pos": {
-          "x": 1020,
-          "y": 210,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "dacgavdib",
-        "pos": {
-          "x": 1020,
-          "y": 110,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepco2b",
-        "pos": {
-          "x": 1640,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon2b",
-        "pos": {
-          "x": 1520,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun2b",
-        "pos": {
-          "x": 1640,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini2b",
-        "pos": {
-          "x": 1340,
-          "y": 610,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti2b",
-        "pos": {
-          "x": 1520,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv2b",
-        "pos": {
-          "x": 1330,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge2b",
-        "pos": {
-          "x": 1330,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem2b",
-        "pos": {
-          "x": 1210,
-          "y": 400,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah2b",
-        "pos": {
-          "x": 1210,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawp2b",
-        "pos": {
-          "x": 1020,
-          "y": 530,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "dacgavdi2b",
-        "pos": {
-          "x": 1020,
-          "y": 430,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdi2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawpb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawpb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawpb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawpb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdi2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 2
-        }
-      }
-    ]
-  },
-  "Dlatch": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 870,
-          "y": 70,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 710,
-          "y": 70,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 870,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 540,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 710,
-          "y": 170,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      }
-    ]
-  },
-  "Tff": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 840,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 720,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 840,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 540,
-          "y": 290,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 720,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv",
-        "pos": {
-          "x": 530,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "toceluge",
-        "pos": {
-          "x": 530,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "sagovcem",
-        "pos": {
-          "x": 410,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "banfakah",
-        "pos": {
-          "x": 410,
-          "y": 190,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "kebiwawp",
-        "pos": {
-          "x": 210,
-          "y": 240,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "iwimouvi",
-        "pos": {
-          "x": 50,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "larajaje",
-        "pos": {
-          "x": 440,
-          "y": 440,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vezborku",
-        "pos": {
-          "x": 320,
-          "y": 370,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vajudgif",
-        "pos": {
-          "x": 330,
-          "y": 530,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "sajcodhe",
-        "pos": {
-          "x": 210,
-          "y": 440,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vezborku",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "larajaje",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vajudgif",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "larajaje",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sajcodhe",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vezborku",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sajcodhe",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vajudgif",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "iwimouvi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sajcodhe",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "iwimouvi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vajudgif",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vezborku",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sajcodhe",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "larajaje",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
-        }
-      }
-    ]
-  },
-  "Tff2": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 660,
-          "y": 180,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 550,
-          "y": 180,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 660,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 450,
-          "y": 270,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 550,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv",
-        "pos": {
-          "x": 390,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge",
-        "pos": {
-          "x": 390,
-          "y": 180,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem",
-        "pos": {
-          "x": 270,
-          "y": 80,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah",
-        "pos": {
-          "x": 270,
-          "y": 180,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "kebiwawp",
-        "pos": {
-          "x": 170,
-          "y": 270,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "iwimouvi",
-        "pos": {
-          "x": 530,
-          "y": 430,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "larajaje",
-        "pos": {
-          "x": 970,
-          "y": 160,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vezborku",
-        "pos": {
-          "x": 850,
-          "y": 110,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vajudgif",
-        "pos": {
-          "x": 850,
-          "y": 210,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "ogmajvow",
-        "pos": {
-          "x": 680,
-          "y": 430,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vezborku",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "larajaje",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vajudgif",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "larajaje",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vezborku",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "larajaje",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "iwimouvi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "ogmajvow",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "iwimouvi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "ogmajvow",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "ogmajvow",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vezborku",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "iwimouvi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vajudgif",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vajudgif",
-          "index": 1
-        }
-      }
-    ]
-  },
-  "cameraQuality": {
-    "value": 13,
-    "version": 2
-  },
-  "first": {
-    "gates": [
-      {
-        "id": "jozougea",
-        "pos": {
-          "x": 330,
-          "y": 240,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            null,
-            null
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "navlizpi",
-        "pos": {
-          "x": 580,
-          "y": 210,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            null,
-            null
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "giwidija",
-        "pos": {
-          "x": 520,
-          "y": 420,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            null,
-            null
-          ],
-          "output": null
-        }
-      }
-    ],
+  "blank": {
+    "gates": [],
     "wires": []
-  },
-  "gates": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 740,
-          "y": 220,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 540,
-          "y": 380,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 740,
-          "y": 120,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 610,
-          "y": 120,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "osudebuv",
-        "pos": {
-          "x": 390,
-          "y": 120,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "toceluge",
-        "pos": {
-          "x": 380,
-          "y": 250,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "sagovcem",
-        "pos": {
-          "x": 250,
-          "y": 150,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "patanepa",
-        "pos": {
-          "x": 730,
-          "y": 420,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lofjangu",
-        "pos": {
-          "x": 80,
-          "y": 90,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "wuhasowo",
-        "pos": {
-          "x": 510,
-          "y": 40,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lofjangu",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "wuhasowo",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lofjangu",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "wuhasowo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lofjangu",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "wuhasowo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "wuhasowo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
-        }
-      }
-    ]
-  },
-  "microphoneGain": {
-    "value": 100,
-    "version": 2
-  },
-  "one": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 690,
-          "y": 160,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 520,
-          "y": 100,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            null,
-            null
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "gubjulus",
-        "pos": {
-          "x": 160,
-          "y": 70,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lakwager",
-        "pos": {
-          "x": 280,
-          "y": 270,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "gibimcoz",
-        "pos": {
-          "x": 90,
-          "y": 290,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 810,
-          "y": 280,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 400,
-          "y": 110,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 500,
-          "y": 260,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "gubjulus",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lakwager",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "gubjulus",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lakwager",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "gibimcoz",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lakwager",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      }
-    ]
   },
   "ripple4": {
     "gates": [
       {
         "id": "misnepco",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 220,
-          "z": 0
+          "y": 220
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lugguzon",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 220,
-          "z": 0
+          "y": 220
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "vejvinun",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 120,
-          "z": 0
+          "y": 120
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lawawuti",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 120,
-          "z": 0
+          "y": 120
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "osudebuv",
+        "type": "gate",
         "pos": {
           "x": 540,
-          "y": 130,
-          "z": 0
+          "y": 130
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "toceluge",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 230,
-          "z": 0
+          "y": 230
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "sagovcem",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 130,
-          "z": 0
+          "y": 130
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "banfakah",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 230,
-          "z": 0
+          "y": 230
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "misnepco2",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 640,
-          "z": 0
+          "y": 640
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lugguzon2",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 640,
-          "z": 0
+          "y": 640
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "vejvinun2",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 540,
-          "z": 0
+          "y": 540
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lawawuti2",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 540,
-          "z": 0
+          "y": 540
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "osudebuv2",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 550,
-          "z": 0
+          "y": 550
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "toceluge2",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 650,
-          "z": 0
+          "y": 650
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "sagovcem2",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 550,
-          "z": 0
+          "y": 550
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "banfakah2",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 650,
-          "z": 0
+          "y": 650
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "misnepcob",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 440,
-          "z": 0
+          "y": 440
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "lugguzonb",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 440,
-          "z": 0
+          "y": 440
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "vejvinunb",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 340,
-          "z": 0
+          "y": 340
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lawawutib",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 340,
-          "z": 0
+          "y": 340
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "osudebuvb",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 340,
-          "z": 0
+          "y": 340
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "tocelugeb",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 440,
-          "z": 0
+          "y": 440
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "sagovcemb",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 340,
-          "z": 0
+          "y": 340
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "banfakahb",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 440,
-          "z": 0
+          "y": 440
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "misnepco2b",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 850,
-          "z": 0
+          "y": 850
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lugguzon2b",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 850,
-          "z": 0
+          "y": 850
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "vejvinun2b",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 750,
-          "z": 0
+          "y": 750
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lawawuti2b",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 750,
-          "z": 0
+          "y": 750
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "osudebuv2b",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 750,
-          "z": 0
+          "y": 750
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "toceluge2b",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 850,
-          "z": 0
+          "y": 850
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "sagovcem2b",
+        "type": "gate",
         "pos": {
           "x": 400,
-          "y": 750,
-          "z": 0
+          "y": 750
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "banfakah2b",
+        "type": "gate",
         "pos": {
           "x": 400,
-          "y": 850,
-          "z": 0
+          "y": 850
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "patanepa",
-        "pos": {
-          "x": 1140,
-          "y": 390,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "okunosvo",
-        "pos": {
-          "x": 1140,
-          "y": 510,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lofjangu",
-        "pos": {
-          "x": 150,
-          "y": 70,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "wuhasowo",
+        "type": "gate",
         "pos": {
           "x": 610,
-          "y": 40,
-          "z": 0
+          "y": 40
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "colemakf",
+        "type": "input",
+        "pos": {
+          "x": 150,
+          "y": 60
+        },
+        "state": [
+          false
+        ],
+        "label": "C"
+      },
+      {
+        "id": "sazwezze",
+        "type": "output",
+        "pos": {
+          "x": 1130,
+          "y": 370
+        },
+        "state": [
+          true
+        ],
+        "label": "1"
+      },
+      {
+        "id": "depelonm",
+        "type": "output",
+        "pos": {
+          "x": 1130,
+          "y": 430
+        },
+        "state": [
+          false
+        ],
+        "label": "2"
+      },
+      {
+        "id": "solkuvto",
+        "type": "output",
+        "pos": {
+          "x": 1130,
+          "y": 490
+        },
+        "state": [
+          false
+        ],
+        "label": "4"
+      },
+      {
+        "id": "zifamjib",
+        "type": "output",
+        "pos": {
+          "x": 1130,
+          "y": 550
+        },
+        "state": [
+          false
+        ],
+        "label": "8"
       }
     ],
     "wires": [
@@ -5131,86 +1309,6 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lofjangu",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "wuhasowo",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lofjangu",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "wuhasowo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lofjangu",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lofjangu",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
           "gate": "wuhasowo",
           "index": 0
         },
@@ -5388,633 +1486,605 @@
           "gate": "lugguzon2b",
           "index": 1
         }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "colemakf",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "banfakah",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "colemakf",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "sagovcem",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "colemakf",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "wuhasowo",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "colemakf",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "wuhasowo",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinun",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "sazwezze",
+          "index": 0
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinunb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "depelonm",
+          "index": 0
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinun2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "solkuvto",
+          "index": 0
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinun2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "zifamjib",
+          "index": 0
+        }
       }
     ]
   },
-  "selectedCameraHeight": {
-    "value": 768,
-    "version": 2
-  },
-  "selectedCameraWidth": {
-    "value": 1024,
-    "version": 2
-  },
-  "shiftreg4": {
+  "shiftreg": {
     "gates": [
       {
         "id": "misnepco",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 190,
-          "z": 0
+          "y": 140
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lugguzon",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 190,
-          "z": 0
+          "y": 140
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "vejvinun",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 80,
-          "z": 0
+          "y": 40
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "eklavini",
+        "type": "gate",
         "pos": {
-          "x": 540,
-          "y": 290,
-          "z": 0
+          "x": 560,
+          "y": 880
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lawawuti",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 80,
-          "z": 0
+          "y": 40
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "osudebuv",
+        "type": "gate",
         "pos": {
-          "x": 530,
-          "y": 80,
-          "z": 0
+          "x": 540,
+          "y": 50
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "toceluge",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 190,
-          "z": 0
+          "y": 150
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "sagovcem",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 80,
-          "z": 0
+          "y": 50
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "banfakah",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 190,
-          "z": 0
+          "y": 150
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "kebiwawp",
-        "pos": {
-          "x": 220,
-          "y": 330,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "dacgavdi",
+        "type": "gate",
         "pos": {
-          "x": 220,
-          "y": 110,
-          "z": 0
+          "x": 240,
+          "y": 100
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "misnepco2",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 510,
-          "z": 0
+          "y": 560
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lugguzon2",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 510,
-          "z": 0
+          "y": 560
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "vejvinun2",
+        "type": "gate",
         "pos": {
           "x": 840,
-          "y": 400,
-          "z": 0
+          "y": 460
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "eklavini2",
-        "pos": {
-          "x": 540,
-          "y": 610,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lawawuti2",
+        "type": "gate",
         "pos": {
           "x": 720,
-          "y": 400,
-          "z": 0
+          "y": 460
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "osudebuv2",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 400,
-          "z": 0
+          "y": 470
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "toceluge2",
+        "type": "gate",
         "pos": {
           "x": 530,
-          "y": 510,
-          "z": 0
+          "y": 570
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "sagovcem2",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 400,
-          "z": 0
+          "y": 470
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "banfakah2",
+        "type": "gate",
         "pos": {
           "x": 410,
-          "y": 510,
-          "z": 0
+          "y": 570
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "misnepcob",
+        "type": "gate",
         "pos": {
-          "x": 1640,
-          "y": 190,
-          "z": 0
+          "x": 840,
+          "y": 360
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lugguzonb",
+        "type": "gate",
         "pos": {
-          "x": 1520,
-          "y": 190,
-          "z": 0
+          "x": 710,
+          "y": 360
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "vejvinunb",
+        "type": "gate",
         "pos": {
-          "x": 1640,
-          "y": 80,
-          "z": 0
+          "x": 840,
+          "y": 250
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavinib",
-        "pos": {
-          "x": 1340,
-          "y": 290,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lawawutib",
+        "type": "gate",
         "pos": {
-          "x": 1520,
-          "y": 80,
-          "z": 0
+          "x": 700,
+          "y": 260
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "osudebuvb",
+        "type": "gate",
         "pos": {
-          "x": 1330,
-          "y": 80,
-          "z": 0
+          "x": 530,
+          "y": 260
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "tocelugeb",
+        "type": "gate",
         "pos": {
-          "x": 1330,
-          "y": 190,
-          "z": 0
+          "x": 530,
+          "y": 360
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "sagovcemb",
+        "type": "gate",
         "pos": {
-          "x": 1210,
-          "y": 80,
-          "z": 0
+          "x": 410,
+          "y": 260
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "banfakahb",
+        "type": "gate",
         "pos": {
-          "x": 1210,
-          "y": 190,
-          "z": 0
+          "x": 410,
+          "y": 360
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "misnepco2b",
+        "type": "gate",
         "pos": {
-          "x": 1640,
-          "y": 510,
-          "z": 0
+          "x": 840,
+          "y": 770
         },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "lugguzon2b",
+        "type": "gate",
         "pos": {
-          "x": 1520,
-          "y": 510,
-          "z": 0
+          "x": 720,
+          "y": 770
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "vejvinun2b",
+        "type": "gate",
         "pos": {
-          "x": 1640,
-          "y": 400,
-          "z": 0
+          "x": 840,
+          "y": 670
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini2b",
-        "pos": {
-          "x": 1340,
-          "y": 610,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "lawawuti2b",
+        "type": "gate",
         "pos": {
-          "x": 1520,
-          "y": 400,
-          "z": 0
+          "x": 710,
+          "y": 670
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "osudebuv2b",
+        "type": "gate",
         "pos": {
-          "x": 1330,
-          "y": 400,
-          "z": 0
+          "x": 530,
+          "y": 670
         },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
+        "state": [
+          false,
+          true,
+          true
+        ]
       },
       {
         "id": "toceluge2b",
+        "type": "gate",
         "pos": {
-          "x": 1330,
-          "y": 510,
-          "z": 0
+          "x": 530,
+          "y": 770
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
       },
       {
         "id": "sagovcem2b",
+        "type": "gate",
         "pos": {
-          "x": 1210,
-          "y": 400,
-          "z": 0
+          "x": 400,
+          "y": 670
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          false
+        ]
       },
       {
         "id": "banfakah2b",
+        "type": "gate",
         "pos": {
-          "x": 1210,
-          "y": 510,
-          "z": 0
+          "x": 400,
+          "y": 770
         },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "patanepa",
-        "pos": {
-          "x": 1900,
-          "y": 220,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "okunosvo",
-        "pos": {
-          "x": 1900,
-          "y": 340,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          false,
+          true
+        ]
       },
       {
         "id": "enaadejo",
+        "type": "gate",
         "pos": {
           "x": 110,
-          "y": 110,
-          "z": 0
+          "y": 100
         },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
+        "state": [
+          true,
+          true,
+          false
+        ]
+      },
+      {
+        "id": "bedorpie",
+        "type": "input",
+        "pos": {
+          "x": 90,
+          "y": 800
+        },
+        "state": [
+          false
+        ],
+        "label": "C"
+      },
+      {
+        "id": "ojuudofu",
+        "type": "output",
+        "pos": {
+          "x": 1160,
+          "y": 290
+        },
+        "state": [
+          false
+        ],
+        "label": "Qa"
+      },
+      {
+        "id": "wikdouze",
+        "type": "output",
+        "pos": {
+          "x": 1160,
+          "y": 350
+        },
+        "state": [
+          true
+        ],
+        "label": "Qb"
+      },
+      {
+        "id": "jeakolel",
+        "type": "output",
+        "pos": {
+          "x": 1160,
+          "y": 410
+        },
+        "state": [
+          false
+        ],
+        "label": "Qc"
+      },
+      {
+        "id": "runewgel",
+        "type": "output",
+        "pos": {
+          "x": 1160,
+          "y": 480
+        },
+        "state": [
+          false
+        ],
+        "label": "Qd"
       }
     ],
     "wires": [
@@ -6120,26 +2190,6 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
           "gate": "banfakah",
           "index": 0
         },
@@ -6170,26 +2220,6 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
           "gate": "dacgavdi",
           "index": 0
         },
@@ -6250,7 +2280,377 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "eklavini2",
+          "gate": "toceluge2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "osudebuv2",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "osudebuv2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "toceluge2",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "sagovcem2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "osudebuv2",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "banfakah2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "toceluge2",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "sagovcem2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "banfakah2",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "osudebuv2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lawawuti2",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinunb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "misnepcob",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "misnepcob",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "vejvinunb",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "lugguzonb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "misnepcob",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "lawawutib",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "vejvinunb",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "lawawutib",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lugguzonb",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "tocelugeb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "osudebuvb",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "osudebuvb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "tocelugeb",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "sagovcemb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "osudebuvb",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "banfakahb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "tocelugeb",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "sagovcemb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "banfakahb",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "osudebuvb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lawawutib",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinun2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "misnepco2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "misnepco2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "vejvinun2b",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "lugguzon2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "misnepco2b",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "lawawuti2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "vejvinun2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "lawawuti2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lugguzon2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "toceluge2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "osudebuv2b",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "osudebuv2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "toceluge2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "sagovcem2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "osudebuv2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "banfakah2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "toceluge2b",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "sagovcem2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "banfakah2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "osudebuv2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lawawuti2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinun",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "sagovcemb",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinun2",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "sagovcem2b",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinunb",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "sagovcem2",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "vejvinun2b",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "enaadejo",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "enaadejo",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "dacgavdi",
+          "index": 2
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "enaadejo",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "dacgavdi",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "eklavini",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lawawutib",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "eklavini",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lugguzonb",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "eklavini",
+          "index": 0
+        },
+        "outputConnectorRef": {
+          "gate": "lawawuti2",
+          "index": 1
+        }
+      },
+      {
+        "inputConnectorRef": {
+          "gate": "eklavini",
           "index": 0
         },
         "outputConnectorRef": {
@@ -6260,1187 +2660,11 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavinib",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 2
-        }
-      }
-    ]
-  },
-  "shiftreg4vert": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 840,
-          "y": 140,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 720,
-          "y": 140,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 840,
-          "y": 40,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 560,
-          "y": 880,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 720,
-          "y": 40,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv",
-        "pos": {
-          "x": 540,
-          "y": 50,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge",
-        "pos": {
-          "x": 530,
-          "y": 150,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem",
-        "pos": {
-          "x": 410,
-          "y": 50,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah",
-        "pos": {
-          "x": 410,
-          "y": 150,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawp",
-        "pos": {
-          "x": 240,
-          "y": 890,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "dacgavdi",
-        "pos": {
-          "x": 220,
-          "y": 60,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepco2",
-        "pos": {
-          "x": 840,
-          "y": 560,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon2",
-        "pos": {
-          "x": 720,
-          "y": 560,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun2",
-        "pos": {
-          "x": 840,
-          "y": 460,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti2",
-        "pos": {
-          "x": 720,
-          "y": 460,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv2",
-        "pos": {
-          "x": 530,
-          "y": 470,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "toceluge2",
-        "pos": {
-          "x": 530,
-          "y": 570,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "sagovcem2",
-        "pos": {
-          "x": 410,
-          "y": 470,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "banfakah2",
-        "pos": {
-          "x": 410,
-          "y": 570,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "misnepcob",
-        "pos": {
-          "x": 840,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lugguzonb",
-        "pos": {
-          "x": 710,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinunb",
-        "pos": {
-          "x": 840,
-          "y": 250,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lawawutib",
-        "pos": {
-          "x": 700,
-          "y": 260,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuvb",
-        "pos": {
-          "x": 530,
-          "y": 260,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "tocelugeb",
-        "pos": {
-          "x": 530,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcemb",
-        "pos": {
-          "x": 410,
-          "y": 260,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakahb",
-        "pos": {
-          "x": 410,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepco2b",
-        "pos": {
-          "x": 840,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon2b",
-        "pos": {
-          "x": 720,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun2b",
-        "pos": {
-          "x": 840,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti2b",
-        "pos": {
-          "x": 710,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv2b",
-        "pos": {
-          "x": 530,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge2b",
-        "pos": {
-          "x": 530,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem2b",
-        "pos": {
-          "x": 400,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah2b",
-        "pos": {
-          "x": 400,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "patanepa",
-        "pos": {
-          "x": 1140,
-          "y": 310,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "okunosvo",
-        "pos": {
-          "x": 1140,
-          "y": 430,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "enaadejo",
-        "pos": {
-          "x": 80,
-          "y": 60,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
           "gate": "eklavini",
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "lugguzon",
+          "gate": "lawawuti2b",
           "index": 1
         }
       },
@@ -7450,43 +2674,23 @@
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "lawawuti",
+          "gate": "lugguzon2b",
           "index": 1
         }
       },
       {
         "inputConnectorRef": {
-          "gate": "toceluge",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
           "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 2
+          "index": 1
         }
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
@@ -7496,407 +2700,7 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
@@ -7906,7 +2710,7 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
@@ -7916,17 +2720,7 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
@@ -7936,7 +2730,7 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
@@ -7946,7 +2740,7 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
@@ -7956,7 +2750,7 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "kebiwawp",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
@@ -7966,21 +2760,21 @@
       },
       {
         "inputConnectorRef": {
-          "gate": "vejvinun2",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 2
+          "gate": "eklavini",
+          "index": 1
         }
       },
       {
         "inputConnectorRef": {
-          "gate": "vejvinunb",
+          "gate": "bedorpie",
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "sagovcem2",
+          "gate": "eklavini",
           "index": 2
         }
       },
@@ -7990,8 +2784,8 @@
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 1
+          "gate": "ojuudofu",
+          "index": 0
         }
       },
       {
@@ -8000,8 +2794,8 @@
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 2
+          "gate": "wikdouze",
+          "index": 0
         }
       },
       {
@@ -8010,8 +2804,8 @@
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 1
+          "gate": "jeakolel",
+          "index": 0
         }
       },
       {
@@ -8020,1404 +2814,8 @@
           "index": 0
         },
         "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
+          "gate": "runewgel",
           "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 1
-        }
-      }
-    ]
-  },
-  "tmp": {
-    "gates": [
-      {
-        "id": "misnepco",
-        "pos": {
-          "x": 840,
-          "y": 140,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "lugguzon",
-        "pos": {
-          "x": 720,
-          "y": 140,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": null
-        }
-      },
-      {
-        "id": "vejvinun",
-        "pos": {
-          "x": 840,
-          "y": 40,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "eklavini",
-        "pos": {
-          "x": 560,
-          "y": 880,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti",
-        "pos": {
-          "x": 720,
-          "y": 40,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv",
-        "pos": {
-          "x": 540,
-          "y": 50,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge",
-        "pos": {
-          "x": 530,
-          "y": 150,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem",
-        "pos": {
-          "x": 410,
-          "y": 50,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah",
-        "pos": {
-          "x": 410,
-          "y": 150,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "kebiwawp",
-        "pos": {
-          "x": 240,
-          "y": 890,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "dacgavdi",
-        "pos": {
-          "x": 220,
-          "y": 60,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepco2",
-        "pos": {
-          "x": 840,
-          "y": 560,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon2",
-        "pos": {
-          "x": 720,
-          "y": 560,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun2",
-        "pos": {
-          "x": 840,
-          "y": 460,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti2",
-        "pos": {
-          "x": 720,
-          "y": 460,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv2",
-        "pos": {
-          "x": 530,
-          "y": 470,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "toceluge2",
-        "pos": {
-          "x": 530,
-          "y": 570,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "sagovcem2",
-        "pos": {
-          "x": 410,
-          "y": 470,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "banfakah2",
-        "pos": {
-          "x": 410,
-          "y": 570,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "misnepcob",
-        "pos": {
-          "x": 840,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lugguzonb",
-        "pos": {
-          "x": 710,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinunb",
-        "pos": {
-          "x": 840,
-          "y": 250,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lawawutib",
-        "pos": {
-          "x": 700,
-          "y": 260,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuvb",
-        "pos": {
-          "x": 530,
-          "y": 260,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "tocelugeb",
-        "pos": {
-          "x": 530,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcemb",
-        "pos": {
-          "x": 410,
-          "y": 260,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakahb",
-        "pos": {
-          "x": 410,
-          "y": 360,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "misnepco2b",
-        "pos": {
-          "x": 840,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "lugguzon2b",
-        "pos": {
-          "x": 720,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "vejvinun2b",
-        "pos": {
-          "x": 840,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "lawawuti2b",
-        "pos": {
-          "x": 710,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "osudebuv2b",
-        "pos": {
-          "x": 530,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "toceluge2b",
-        "pos": {
-          "x": 530,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "sagovcem2b",
-        "pos": {
-          "x": 400,
-          "y": 670,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "banfakah2b",
-        "pos": {
-          "x": 400,
-          "y": 770,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            true
-          ],
-          "output": false
-        }
-      },
-      {
-        "id": "patanepa",
-        "pos": {
-          "x": 1140,
-          "y": 310,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            true
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "okunosvo",
-        "pos": {
-          "x": 1140,
-          "y": 430,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            false,
-            false
-          ],
-          "output": true
-        }
-      },
-      {
-        "id": "enaadejo",
-        "pos": {
-          "x": 80,
-          "y": 60,
-          "z": 0
-        },
-        "state": {
-          "inputs": [
-            true,
-            false
-          ],
-          "output": true
-        }
-      }
-    ],
-    "wires": [
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "eklavini",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepcob",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "tocelugeb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuvb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "misnepco2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "toceluge2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "osudebuv2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakahb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcemb",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "kebiwawp",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "banfakah2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2b",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "sagovcem2",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinunb",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "patanepa",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "okunosvo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "vejvinun2b",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 2
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "enaadejo",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "dacgavdi",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawutib",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzonb",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lawawuti2b",
-          "index": 1
-        }
-      },
-      {
-        "inputConnectorRef": {
-          "gate": "eklavini",
-          "index": 0
-        },
-        "outputConnectorRef": {
-          "gate": "lugguzon2b",
-          "index": 1
         }
       }
     ]
