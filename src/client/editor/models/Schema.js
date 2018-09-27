@@ -78,6 +78,7 @@ export default class Schema {
   }
 
   save() {
+    debug("saving…");
     this.storage.set(
       JSON.stringify({
         gates: this.gates,
@@ -131,7 +132,6 @@ export default class Schema {
         this.playerGone(data.playerId);
       }
     }
-    this.save();
   }
 
   connectOrDisconnect(srcConnector, targetConnector) {
@@ -190,7 +190,6 @@ export default class Schema {
         .reverse()
         .some(g => g[event](p, eventData))
     ) {
-      this.save();
     }
     return false;
   }
@@ -200,8 +199,13 @@ export default class Schema {
       return true;
     }
     const { x, y, key } = eventData;
-    if (key === "c") {
-      this.addGate({ x, y });
+    switch (key) {
+      case "c":
+        this.addGate({ x, y });
+        return true;
+      case "s":
+        this.save();
+        return true;
     }
     return false;
   }
@@ -209,7 +213,6 @@ export default class Schema {
   addGate({ x, y }) {
     this.gates.push(new Gate({ schema: this, pos: this.snapToGrid({ x, y }) }));
     this.checkAssignments();
-    this.save();
   }
 
   deleteGate(gate) {
@@ -217,7 +220,6 @@ export default class Schema {
     pullAll(this.wires, deadWires);
     pull(this.gates, gate);
     this.checkAssignments();
-    this.save();
   }
 
   checkAssignments() {
