@@ -156,9 +156,15 @@ export default class Player {
     p.pop();
 
     p.push();
-    p.imageMode(p.CENTER);
+    p.imageMode(p.CORNER);
     p.noSmooth();
-    p.image(p.truthTableImage, 160, 360, 140, 140);
+    p.image(
+      p.truthTableImage,
+      this.gatePos.x,
+      this.gatePos.y + this.gateSize + 20,
+      this.gateSize,
+      this.gateSize
+    );
     p.pop();
 
     p.pop();
