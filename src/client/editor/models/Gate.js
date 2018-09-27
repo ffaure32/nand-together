@@ -170,7 +170,11 @@ export default class Gate {
 
   simulate() {
     if (!this.playerId) {
-      this.output.state = !(this.inputs[0].state && this.inputs[1].state);
+      if (this.inputs.some(i => typeof i.state !== "boolean")) {
+        this.output.state = null;
+      } else {
+        this.output.state = !this.inputs.every(i => i.state);
+      }
     } else {
       if (this.inputs.some(i => i.lastState !== i.state)) {
         this.output.state = null;
