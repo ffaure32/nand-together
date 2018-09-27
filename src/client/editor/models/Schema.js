@@ -21,26 +21,6 @@ export default class Schema {
   draw(p) {
     p.clear();
 
-    p.push();
-    p.fill(0);
-    p.textSize(32);
-    p.textAlign(p.LEFT, p.TOP);
-    p.text(`Connect to: ${location.protocol}//${location.host}`, 5, 5);
-    p.pop();
-
-    p.push();
-    p.fill(0);
-    p.textSize(24);
-    p.textAlign(p.LEFT, p.BOTTOM);
-    p.text(
-      `Gates: ${this.gates.length} / Players: ${
-        Object.keys(this.players).length
-      }`,
-      5,
-      p.height - 5
-    );
-    p.pop();
-
     this.gates.forEach(g => g.draw(p));
     this.wires.forEach(w => w.draw(p));
     this.gates.forEach(g => g.drawLabel(p));
@@ -61,6 +41,26 @@ export default class Schema {
       p.text("⌛️", p.width - 50, 50);
       p.pop();
     }
+
+    p.push();
+    p.fill(0);
+    p.textSize(32);
+    p.textAlign(p.LEFT, p.TOP);
+    p.text(`Connect to: ${location.protocol}//${location.host}`, 5, 5);
+    p.pop();
+
+    p.push();
+    p.fill(0);
+    p.textSize(24);
+    p.textAlign(p.LEFT, p.BOTTOM);
+    p.text(
+      `Gates: ${this.gates.length} / Players: ${
+        Object.keys(this.players).length
+      }`,
+      5,
+      p.height - 5
+    );
+    p.pop();
   }
 
   dragWire(connector, { x, y, dragging }) {
@@ -77,9 +77,20 @@ export default class Schema {
     }
   }
 
-  save() {
-    debug("saving…");
+  savePrompt() {
+    setTimeout(() => {
+      const fileName = prompt("Save to?", this.storage.get("currentFile"));
+      if (fileName) {
+        this.save(fileName);
+        this.storage.set("currentFile", fileName);
+      }
+    }, 200);
+  }
+
+  save(fileName) {
+    debug(`saving to ${fileName}…`);
     this.storage.set(
+      fileName,
       JSON.stringify({
         gates: this.gates,
         wires: this.wires
@@ -87,20 +98,33 @@ export default class Schema {
     );
   }
 
+  loadPrompt() {
+    setTimeout(() => {
+      const fileName = prompt("Load from?", this.storage.get("currentFile"));
+      if (fileName) {
+        this.load(fileName);
+      }
+    }, 200);
+  }
+
+  load(fileName) {
+    debug(`loading from ${fileName}…`);
+    const store = JSON.parse(this.storage.get(fileName));
+    this.gates = store.gates.map(
+      info => new Gate(Object.assign({ schema: this }, info))
+    );
+    this.wires = store.wires.map(
+      info => new Wire(Object.assign({ schema: this }, info))
+    );
+    this.storage.set("currentFile", fileName);
+    this.checkAssignments();
+  }
+
   restore() {
     try {
-      const store = JSON.parse(this.storage.get());
-      this.gates = store.gates.map(
-        info => new Gate(Object.assign({ schema: this }, info))
-      );
-      this.wires = store.wires.map(
-        info => new Wire(Object.assign({ schema: this }, info))
-      );
+      this.load(this.storage.get("currentFile"));
     } catch (e) {
       console.error("Failed to load from localStorage:", e);
-      this.gates = Array(10)
-        .fill()
-        .map(() => new Gate({ schema: this }));
     }
   }
 
@@ -204,7 +228,10 @@ export default class Schema {
         this.addGate({ x, y });
         return true;
       case "s":
-        this.save();
+        this.savePrompt();
+        return true;
+      case "l":
+        this.loadPrompt();
         return true;
     }
     return false;

@@ -5,12 +5,12 @@ import Schema from "./models/Schema";
 import "../css/common.css";
 
 const storage = {
-  get() {
-    return localStorage.getItem("gates");
+  get(fileName) {
+    return localStorage.getItem(fileName);
   },
 
-  set(data) {
-    localStorage.setItem("gates", data);
+  set(fileName, data) {
+    localStorage.setItem(fileName, data);
   }
 };
 
