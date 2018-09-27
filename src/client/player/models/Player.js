@@ -57,6 +57,9 @@ export default class Player {
     });
 
     socket.on("update", ({ inputs }) => {
+      this.inputs.forEach((v, i) => {
+        this.inputs[i].state = inputs[i];
+      });
       this.output.state = null;
     });
   }
