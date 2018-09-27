@@ -23,7 +23,6 @@ export default class Connector {
 
   mousePressed(p, { x, y, button }) {
     if (containsPoint(this, x, y)) {
-      this.dragged = false;
       this.handlePos = new Vector(x - this.pos.x, y - this.pos.y);
       return true;
     }
@@ -32,7 +31,6 @@ export default class Connector {
 
   mouseDragged(p, { x, y, button }) {
     if (this.handlePos) {
-      this.dragged = true;
       this.gate.dragWire(this, { x, y, dragging: true });
       return true;
     }
@@ -41,16 +39,27 @@ export default class Connector {
 
   mouseReleased(p, { x, y, button }) {
     if (this.handlePos) {
-      if (!this.dragged) {
-        this.state = !this.state;
-      } else {
-        this.gate.dragWire(this, { x, y, dragging: false });
-      }
-
+      this.gate.dragWire(this, { x, y, dragging: false });
       this.handlePos = null;
       return true;
     }
     return false;
+  }
+
+  keyTyped(p, { x, y, key }) {
+    if (containsPoint(this, x, y)) {
+      switch (key) {
+        case "r":
+          this.state = false;
+          return true;
+        case "g":
+          this.state = true;
+          return true;
+        case "u":
+          this.state = null;
+          return true;
+      }
+    }
   }
 
   makeConnectorRef() {

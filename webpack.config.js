@@ -15,7 +15,7 @@ module.exports = {
         loader: "babel-loader",
 
         options: {
-          plugins: ["syntax-dynamic-import"],
+          plugins: ["syntax-dynamic-import", "transform-object-rest-spread"],
 
           presets: [
             [

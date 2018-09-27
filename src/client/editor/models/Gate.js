@@ -114,9 +114,9 @@ export default class Gate {
     return this.dispatchToConnectors("mouseReleased", p, { x, y, button });
   }
 
-  dispatchToConnectors(event, p, { x, y, button }) {
+  dispatchToConnectors(event, p, { x, y, ...info }) {
     return this.connectors.some(c =>
-      c[event](p, { x: x - this.pos.x, y: y - this.pos.y, button })
+      c[event](p, { x: x - this.pos.x, y: y - this.pos.y, ...info })
     );
   }
 
@@ -186,6 +186,10 @@ export default class Gate {
   }
 
   keyTyped(p, { x, y, key }) {
+    if (this.dispatchToConnectors("keyTyped", p, { x, y, key })) {
+      return true;
+    }
+
     if (containsPoint(this, x, y)) {
       if (key === "x") {
         this.schema.deleteGate(this);
