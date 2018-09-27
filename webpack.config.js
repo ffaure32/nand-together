@@ -51,20 +51,29 @@ module.exports = {
   mode: process.env.NODE_ENV || "development",
 
   plugins: [
+    ...(process.env.NODE_ENV === "production"
+      ? [
+          // p5.min.js is not just a minification of p5.js, it also omits the
+          // embedded documentation, so it's a win to use p5.min.js even though
+          // we minimize everything in the end
+          new webpack.NormalModuleReplacementPlugin(/.*\/p5.js$/, "p5.min.js"),
+          new CompressionPlugin()
+        ]
+      : []),
+
     new HtmlWebpackPlugin({
       filename: "index.html",
       hash: true,
       chunks: ["player"],
       template: path.resolve(__dirname, "src/client/template.html")
     }),
+
     new HtmlWebpackPlugin({
       filename: "editor.html",
       hash: true,
       chunks: ["editor"],
       template: path.resolve(__dirname, "src/client/template.html")
-    }),
-
-    new CompressionPlugin()
+    })
   ],
 
   devServer: {
