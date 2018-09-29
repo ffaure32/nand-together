@@ -191,7 +191,7 @@ export default class Player {
       if (containsPoint(b, x, y)) {
         if (b.type === "state") {
           this.output.state = b.targetState;
-          this.socket.emit("output", { state: this.output.state });
+          this.socket.emit("update", { output: this.output.state });
         } else if (b.type === "heart") {
           this.socket.emit("heart", {});
         }

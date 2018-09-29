@@ -2,15 +2,14 @@ const EventEmitter = require("events");
 const debug = require("debug")("nand:player-connection");
 
 module.exports = class PlayerConnection extends EventEmitter {
-  constructor({ playerId, socketId, sendUpdateToClient }) {
+  constructor({ socketId, sendUpdateToClient }) {
     super();
-    this.playerId = playerId;
     this.socketId = socketId;
     this.sendUpdateToClient = sendUpdateToClient;
   }
 
-  receiveFromClient(output) {
-    this.emit("from-client", { output });
+  receiveFromClient(update) {
+    this.emit("from-client", { update });
   }
 
   deliverUpdate(data) {

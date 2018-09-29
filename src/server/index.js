@@ -96,7 +96,7 @@ module.exports = function() {
         sendUpdateToClient
       });
 
-      socket.on("output", data => {
+      socket.on("update", data => {
         debug(
           `player '${playerId}' sent update ${JSON.stringify(
             data

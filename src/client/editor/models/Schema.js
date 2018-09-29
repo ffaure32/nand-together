@@ -162,9 +162,9 @@ export default class Schema {
 
   playerUpdate(data) {
     const { playerId } = data;
-    if ("output" in data) {
+    if ("update" in data) {
       this.gates.filter(gate => gate.playerId === playerId).forEach(gate => {
-        gate.update(data);
+        gate.update(data.update);
       });
     } else if ("present" in data) {
       if (data.present) {

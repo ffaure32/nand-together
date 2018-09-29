@@ -150,7 +150,7 @@ export default class Gate {
     };
   }
 
-  update({ output: { state } }) {
+  update({ output: state }) {
     this.output.state = state;
   }
 

@@ -69,16 +69,28 @@ describe("The server", function() {
         player = connectPlayer("aPlayer");
       });
 
-      it("echoes output messages from players", function(done) {
+      it("echoes update messages from players", function(done) {
         editor.once("player", function(data) {
           expect(data).to.deep.equal({
             playerId: "aPlayer",
-            output: { state: true }
+            update: { output: true }
           });
           done();
         });
 
-        player.emit("output", { state: true });
+        player.emit("update", { output: true });
+      });
+
+      it("relays hearts from players", function(done) {
+        editor.once("player", function(data) {
+          expect(data).to.deep.equal({
+            playerId: "aPlayer",
+            heart: true
+          });
+          done();
+        });
+
+        player.emit("heart", {});
       });
 
       it("notifies editor of player disconnection", function(done) {
