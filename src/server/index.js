@@ -105,13 +105,6 @@ module.exports = function() {
         connection.receiveFromClient(data);
       });
 
-      socket.on("heart", () => {
-        debug(
-          `player '${playerId}' sent a heart from ${address} with socket ${socketId}`
-        );
-        players.sendHeart(playerId);
-      });
-
       socket.on("disconnect", function() {
         debug(
           `player '${playerId}' disconnected from ${address} with socket ${socketId}`

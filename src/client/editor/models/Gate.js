@@ -150,8 +150,13 @@ export default class Gate {
     };
   }
 
-  update({ output: state }) {
-    this.output.state = state;
+  update(data) {
+    if ("output" in data) {
+      this.output.state = data.output;
+    }
+    if (data.heart) {
+      this.schema.addHeart(Vector.add(this.pos, Vector.mult(this.size, 0.5)));
+    }
   }
 
   attachPlayer(playerId) {

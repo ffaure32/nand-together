@@ -193,7 +193,7 @@ export default class Player {
           this.output.state = b.targetState;
           this.socket.emit("update", { output: this.output.state });
         } else if (b.type === "heart") {
-          this.socket.emit("heart", {});
+          this.socket.emit("update", { heart: true });
         }
       }
     });

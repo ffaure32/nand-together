@@ -22,9 +22,9 @@ export default class Heart {
       this.size.y
     );
     p.pop();
-    this.age++;
-    if (this.age > 80) {
-      pull(this.schema.hearts, this);
-    }
+  }
+
+  simulate() {
+    return this.age++ <= 80;
   }
 }

@@ -16,10 +16,6 @@ module.exports = class EditorHandler extends EventEmitter {
     );
 
     this.players.on("player-updated", this._onPlayerUpdated);
-    this.players.on("heart", ({ playerId }) => {
-      debug("Relaying heart from player " + playerId);
-      this.sendPlayerToClient({ playerId, heart: true });
-    });
   }
 
   disconnect() {

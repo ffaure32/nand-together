@@ -172,8 +172,6 @@ export default class Schema {
       } else {
         this.playerGone(data.playerId);
       }
-    } else if ("heart" in data) {
-      this.addHeart(data.playerId);
     }
   }
 
@@ -215,6 +213,8 @@ export default class Schema {
     } else {
       this.simulationBlocked = true;
     }
+    const deadHearts = this.hearts.filter(h => !h.simulate());
+    pullAll(this.hearts, deadHearts);
   }
 
   neededPlayerUpdates() {
@@ -284,13 +284,7 @@ export default class Schema {
     );
   }
 
-  addHeart(playerId) {
-    const gate = this.players[playerId];
-    if (!gate) {
-      debug(`no gate for heart from player ${playerId} :(`);
-      return;
-    }
-    const pos = gate.center();
+  addHeart(pos) {
     this.hearts.push(new Heart({ schema: this, pos }));
   }
 

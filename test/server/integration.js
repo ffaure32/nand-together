@@ -81,18 +81,6 @@ describe("The server", function() {
         player.emit("update", { output: true });
       });
 
-      it("relays hearts from players", function(done) {
-        editor.once("player", function(data) {
-          expect(data).to.deep.equal({
-            playerId: "aPlayer",
-            heart: true
-          });
-          done();
-        });
-
-        player.emit("heart", {});
-      });
-
       it("notifies editor of player disconnection", function(done) {
         editor.once("player", function(data) {
           expect(data).to.deep.equal({
